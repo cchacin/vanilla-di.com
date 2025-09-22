@@ -649,6 +649,25 @@ public class Application {
 
 ---
 
+## Support Vanilla DI Development
+
+Developing the world's most lightweight DI framework is hard work! Help us maintain our 0-byte codebase and continue delivering blazing-fast performance improvements.
+
+<a href="https://www.buymeacoffee.com/cchacin" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" />
+</a>
+
+**Your contribution helps us:**
+- Keep the framework dependency-free ✅
+- Maintain zero compilation overhead ✅
+- Continue delivering sub-millisecond startup times ✅
+- Fund our extensive "no-documentation" documentation ✅
+- Support our team of 0 full-time developers ✅
+
+*Fun fact: 100% of donations go directly toward not adding features to Vanilla DI!*
+
+---
+
 The **Vanilla DI** team maintains every line of code in the framework and works hard each day to make sure it stays simple and intuitive.
 
 Made with ❤️ for Java developers who appreciate simplicity.
