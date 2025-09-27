@@ -527,7 +527,7 @@ public class UserService {
     }
 
     @Executable
-    public CompletableFuture<User> createUserAsync(CreateUserRequest request) {
+    public CompletableFuture&lt;User&gt; createUserAsync(CreateUserRequest request) {
         return CompletableFuture.supplyAsync(() -> {
             User user = new User(request.getName(), request.getEmail());
             User savedUser = userRepository.save(user);
@@ -570,7 +570,7 @@ public class MicronautApp {
         this.executorService = executorService;
     }
 
-    public CompletableFuture<User> createUserAsync(CreateUserRequest request) {
+    public CompletableFuture&lt;User&gt; createUserAsync(CreateUserRequest request) {
         return CompletableFuture.supplyAsync(() -> {
             User user = new User(request.getName(), request.getEmail());
             User savedUser = userRepository.save(user);
@@ -646,7 +646,7 @@ public class OrderProcessingService {
 
     @Asynchronous
     @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-    public Future<OrderResult> processOrderAsync(
+    public Future&lt;OrderResult&gt; processOrderAsync(
             @Valid OrderRequest request,
             @NotNull SecurityContext securityContext) {
 
@@ -661,7 +661,7 @@ public class OrderProcessingService {
             sendOrderNotification(order);
             auditLogger.logOrderProcessed(order, securityContext.getUserPrincipal());
 
-            return new AsyncResult<>(new OrderResult(order, payment));
+            return new AsyncResult&lt;&gt;(new OrderResult(order, payment));
         } catch (Exception e) {
             // Container handles rollback
             throw new EJBException(\"Order processing failed\", e);
@@ -708,7 +708,7 @@ public class OrderProcessingService {
         this.executorService = executorService;
     }
 
-    public CompletableFuture<OrderResult> processOrderAsync(
+    public CompletableFuture&lt;OrderResult&gt; processOrderAsync(
             OrderRequest request,
             User currentUser) {
 

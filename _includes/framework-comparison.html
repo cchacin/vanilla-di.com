@@ -1,55 +1,31 @@
-<section class="comparison-section" id="{{ include.id | default: 'comparison' }}" aria-label="Framework comparison: {{ include.title }}">
-  <h3 class="comparison-title">{{ include.title }}</h3>
+<h3>{{ include.title }}</h3>
 
-  <div class="comparison-grid" role="group" aria-label="Code comparison between {{ include.framework_name }} and Vanilla DI">
-    <!-- Framework Example -->
-    <article class="framework-example" role="region" aria-label="{{ include.framework_name }} implementation example">
-      <div class="framework-header">
-        <h4 class="framework-name">{{ include.framework_name }}</h4>
-        <div class="complexity-indicator" role="img" aria-label="Complexity score: {{ include.complexity }} out of 10">
-          <span class="complexity-score complexity-{{ include.complexity }}" aria-hidden="true">{{ include.complexity }}</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="{{ include.framework_name }} code example">
-        <div class="code-header">
-          <span class="code-label">{{ include.framework_name }} Implementation</span>
-          <button class="copy-button" data-clipboard-text="{{ include.code | escape }}" aria-label="Copy {{ include.framework_name }} code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for {{ include.framework_name }}"><code class="language-java">{{ include.code }}</code></pre>
-      </div>
-    </article>
-
-    <!-- Vanilla DI Example -->
-    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
-      <div class="framework-header vanilla">
-        <h4 class="framework-name">Vanilla DI</h4>
-        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
-          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="Vanilla DI code example">
-        <div class="code-header vanilla">
-          <span class="code-label">Vanilla DI Implementation</span>
-          <button class="copy-button" data-clipboard-text="{{ include.vanilla_code | escape }}" aria-label="Copy Vanilla DI code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">{{ include.vanilla_code }}</code></pre>
-      </div>
-    </article>
+<div class="comparison-grid">
+  <!-- Framework Example -->
+  <div class="code-example framework-example">
+    <div class="example-header">
+      <h4>{{ include.framework_name }}</h4>
+      <span class="complexity-badge">Complexity: {{ include.complexity }}/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="{{ include.code | escape }}">Copy</button>
+      <pre><code class="language-java">{{ include.code | strip }}</code></pre>
+    </div>
   </div>
 
-  {% if include.description %}
-  <div class="comparison-description" role="note" aria-label="Comparison explanation">
-    <p>{{ include.description }}</p>
+  <!-- Vanilla DI Example -->
+  <div class="code-example vanilla-example">
+    <div class="example-header">
+      <h4>Vanilla DI</h4>
+      <span class="complexity-badge vanilla">Complexity: 0/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="{{ include.vanilla_code | escape }}">Copy</button>
+      <pre><code class="language-java">{{ include.vanilla_code | strip }}</code></pre>
+    </div>
   </div>
-  {% endif %}
-</section>
+</div>
+
+{% if include.description %}
+<p class="comparison-note">{{ include.description }}</p>
+{% endif %}

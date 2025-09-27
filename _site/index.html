@@ -349,24 +349,17 @@
 
 <p>Witness the dramatic difference between framework complexity and Vanilla DI elegance. Prepare to be amazed by the power of doing less:</p>
 
-<section class="comparison-section" id="basic-service" aria-label="Framework comparison: Basic Service Injection">
-  <h3 class="comparison-title">Basic Service Injection</h3>
+<h3>Basic Service Injection</h3>
 
-  <div class="comparison-grid" role="group" aria-label="Code comparison between Spring Framework and Vanilla DI">
-    <!-- Framework Example -->
-    <article class="framework-example" role="region" aria-label="Spring Framework implementation example">
-      <div class="framework-header">
-        <h4 class="framework-name">Spring Framework</h4>
-        <div class="complexity-indicator" role="img" aria-label="Complexity score: 8 out of 10">
-          <span class="complexity-score complexity-8" aria-hidden="true">8</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="Spring Framework code example">
-        <div class="code-header">
-          <span class="code-label">Spring Framework Implementation</span>
-          <button class="copy-button" data-clipboard-text="@Service
+<div class="comparison-grid">
+  <!-- Framework Example -->
+  <div class="code-example framework-example">
+    <div class="example-header">
+      <h4>Spring Framework</h4>
+      <span class="complexity-badge">Complexity: 8/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="@Service
 public class UserService {
     @Autowired
     private UserRepository userRepository;
@@ -391,12 +384,8 @@ public class UserRepository {
 @EnableJpaRepositories
 public class AppConfig {
     // Complex configuration...
-}" aria-label="Copy Spring Framework code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Spring Framework"><code class="language-java">@Service
+}">Copy</button>
+      <pre><code class="language-java">@Service
 public class UserService {
     @Autowired
     private UserRepository userRepository;
@@ -422,23 +411,17 @@ public class UserRepository {
 public class AppConfig {
     // Complex configuration...
 }</code></pre>
-      </div>
-    </article>
+    </div>
+  </div>
 
-    <!-- Vanilla DI Example -->
-    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
-      <div class="framework-header vanilla">
-        <h4 class="framework-name">Vanilla DI</h4>
-        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
-          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="Vanilla DI code example">
-        <div class="code-header vanilla">
-          <span class="code-label">Vanilla DI Implementation</span>
-          <button class="copy-button" data-clipboard-text="public class UserService {
+  <!-- Vanilla DI Example -->
+  <div class="code-example vanilla-example">
+    <div class="example-header">
+      <h4>Vanilla DI</h4>
+      <span class="complexity-badge vanilla">Complexity: 0/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="public class UserService {
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
@@ -465,12 +448,8 @@ public class UserRepository {
 // In your main method or factory:
 EntityManager entityManager = createEntityManager();
 UserRepository repository = new UserRepository(entityManager);
-UserService service = new UserService(repository);" aria-label="Copy Vanilla DI code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public class UserService {
+UserService service = new UserService(repository);">Copy</button>
+      <pre><code class="language-java">public class UserService {
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
@@ -498,35 +477,23 @@ public class UserRepository {
 EntityManager entityManager = createEntityManager();
 UserRepository repository = new UserRepository(entityManager);
 UserService service = new UserService(repository);</code></pre>
-      </div>
-    </article>
+    </div>
   </div>
+</div>
 
-  
-  <div class="comparison-description" role="note" aria-label="Comparison explanation">
-    <p>Marvel at this breakthrough in software engineering: dependencies are simply passed to constructors! No advanced degrees in framework archaeology required.</p>
-  </div>
-  
-</section>
+<p class="comparison-note">Marvel at this breakthrough in software engineering: dependencies are simply passed to constructors! No advanced degrees in framework archaeology required.</p>
 
-<section class="comparison-section" id="complex-dependency" aria-label="Framework comparison: Complex Dependency Graph">
-  <h3 class="comparison-title">Complex Dependency Graph</h3>
+<h3>Complex Dependency Graph</h3>
 
-  <div class="comparison-grid" role="group" aria-label="Code comparison between Google Guice and Vanilla DI">
-    <!-- Framework Example -->
-    <article class="framework-example" role="region" aria-label="Google Guice implementation example">
-      <div class="framework-header">
-        <h4 class="framework-name">Google Guice</h4>
-        <div class="complexity-indicator" role="img" aria-label="Complexity score: 6 out of 10">
-          <span class="complexity-score complexity-6" aria-hidden="true">6</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="Google Guice code example">
-        <div class="code-header">
-          <span class="code-label">Google Guice Implementation</span>
-          <button class="copy-button" data-clipboard-text="public class DatabaseModule extends AbstractModule {
+<div class="comparison-grid">
+  <!-- Framework Example -->
+  <div class="code-example framework-example">
+    <div class="example-header">
+      <h4>Google Guice</h4>
+      <span class="complexity-badge">Complexity: 6/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="public class DatabaseModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(UserRepository.class).to(JpaUserRepository.class);
@@ -558,12 +525,8 @@ public class OrderService {
 
 // Bootstrap
 Injector injector = Guice.createInjector(new DatabaseModule());
-OrderService orderService = injector.getInstance(OrderService.class);" aria-label="Copy Google Guice code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Google Guice"><code class="language-java">public class DatabaseModule extends AbstractModule {
+OrderService orderService = injector.getInstance(OrderService.class);">Copy</button>
+      <pre><code class="language-java">public class DatabaseModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(UserRepository.class).to(JpaUserRepository.class);
@@ -596,23 +559,17 @@ public class OrderService {
 // Bootstrap
 Injector injector = Guice.createInjector(new DatabaseModule());
 OrderService orderService = injector.getInstance(OrderService.class);</code></pre>
-      </div>
-    </article>
+    </div>
+  </div>
 
-    <!-- Vanilla DI Example -->
-    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
-      <div class="framework-header vanilla">
-        <h4 class="framework-name">Vanilla DI</h4>
-        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
-          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="Vanilla DI code example">
-        <div class="code-header vanilla">
-          <span class="code-label">Vanilla DI Implementation</span>
-          <button class="copy-button" data-clipboard-text="public class OrderService {
+  <!-- Vanilla DI Example -->
+  <div class="code-example vanilla-example">
+    <div class="example-header">
+      <h4>Vanilla DI</h4>
+      <span class="complexity-badge vanilla">Complexity: 0/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="public class OrderService {
     private final UserRepository userRepository;
     private final OrderRepository orderRepository;
     private final EmailService emailService;
@@ -640,12 +597,8 @@ OrderService orderService = new OrderService(
     userRepository,
     orderRepository,
     emailService
-);" aria-label="Copy Vanilla DI code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public class OrderService {
+);">Copy</button>
+      <pre><code class="language-java">public class OrderService {
     private final UserRepository userRepository;
     private final OrderRepository orderRepository;
     private final EmailService emailService;
@@ -674,35 +627,23 @@ OrderService orderService = new OrderService(
     orderRepository,
     emailService
 );</code></pre>
-      </div>
-    </article>
+    </div>
   </div>
+</div>
 
-  
-  <div class="comparison-description" role="note" aria-label="Comparison explanation">
-    <p>Behold the revolutionary concept of 'new' - a cutting-edge Java keyword that creates objects! No PhD in Guice binding semantics required.</p>
-  </div>
-  
-</section>
+<p class="comparison-note">Behold the revolutionary concept of 'new' - a cutting-edge Java keyword that creates objects! No PhD in Guice binding semantics required.</p>
 
-<section class="comparison-section" id="conditional-dependencies" aria-label="Framework comparison: Conditional Dependencies">
-  <h3 class="comparison-title">Conditional Dependencies</h3>
+<h3>Conditional Dependencies</h3>
 
-  <div class="comparison-grid" role="group" aria-label="Code comparison between Spring Boot and Vanilla DI">
-    <!-- Framework Example -->
-    <article class="framework-example" role="region" aria-label="Spring Boot implementation example">
-      <div class="framework-header">
-        <h4 class="framework-name">Spring Boot</h4>
-        <div class="complexity-indicator" role="img" aria-label="Complexity score: 9 out of 10">
-          <span class="complexity-score complexity-9" aria-hidden="true">9</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="Spring Boot code example">
-        <div class="code-header">
-          <span class="code-label">Spring Boot Implementation</span>
-          <button class="copy-button" data-clipboard-text="@Service
+<div class="comparison-grid">
+  <!-- Framework Example -->
+  <div class="code-example framework-example">
+    <div class="example-header">
+      <h4>Spring Boot</h4>
+      <span class="complexity-badge">Complexity: 9/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="@Service
 @Profile(&quot;development&quot;)
 public class MockEmailService implements EmailService {
     public void sendEmail(String to, String message) {
@@ -735,12 +676,8 @@ public class NotificationController {
     }
 }
 
-# Plus separate property files for each environment" aria-label="Copy Spring Boot code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Spring Boot"><code class="language-java">@Service
+# Plus separate property files for each environment">Copy</button>
+      <pre><code class="language-java">@Service
 @Profile("development")
 public class MockEmailService implements EmailService {
     public void sendEmail(String to, String message) {
@@ -774,23 +711,17 @@ public class NotificationController {
 }
 
 # Plus separate property files for each environment</code></pre>
-      </div>
-    </article>
+    </div>
+  </div>
 
-    <!-- Vanilla DI Example -->
-    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
-      <div class="framework-header vanilla">
-        <h4 class="framework-name">Vanilla DI</h4>
-        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
-          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="Vanilla DI code example">
-        <div class="code-header vanilla">
-          <span class="code-label">Vanilla DI Implementation</span>
-          <button class="copy-button" data-clipboard-text="public interface EmailService {
+  <!-- Vanilla DI Example -->
+  <div class="code-example vanilla-example">
+    <div class="example-header">
+      <h4>Vanilla DI</h4>
+      <span class="complexity-badge vanilla">Complexity: 0/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="public interface EmailService {
     void sendEmail(String to, String message);
 }
 
@@ -835,12 +766,8 @@ public class ApplicationFactory {
 
         return new NotificationController(emailService);
     }
-}" aria-label="Copy Vanilla DI code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public interface EmailService {
+}">Copy</button>
+      <pre><code class="language-java">public interface EmailService {
     void sendEmail(String to, String message);
 }
 
@@ -886,35 +813,23 @@ public class ApplicationFactory {
         return new NotificationController(emailService);
     }
 }</code></pre>
-      </div>
-    </article>
+    </div>
   </div>
+</div>
 
-  
-  <div class="comparison-description" role="note" aria-label="Comparison explanation">
-    <p>Witness the ancient art of 'if statements' - a mystical Java technique that eliminates the need for @Profile annotations and magical property injection!</p>
-  </div>
-  
-</section>
+<p class="comparison-note">Witness the ancient art of 'if statements' - a mystical Java technique that eliminates the need for @Profile annotations and magical property injection!</p>
 
-<section class="comparison-section" id="testing-mocks" aria-label="Framework comparison: Testing with Mocks">
-  <h3 class="comparison-title">Testing with Mocks</h3>
+<h3>Testing with Mocks</h3>
 
-  <div class="comparison-grid" role="group" aria-label="Code comparison between Dagger 2 and Vanilla DI">
-    <!-- Framework Example -->
-    <article class="framework-example" role="region" aria-label="Dagger 2 implementation example">
-      <div class="framework-header">
-        <h4 class="framework-name">Dagger 2</h4>
-        <div class="complexity-indicator" role="img" aria-label="Complexity score: 4 out of 10">
-          <span class="complexity-score complexity-4" aria-hidden="true">4</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="Dagger 2 code example">
-        <div class="code-header">
-          <span class="code-label">Dagger 2 Implementation</span>
-          <button class="copy-button" data-clipboard-text="@Component(modules = {DatabaseModule.class})
+<div class="comparison-grid">
+  <!-- Framework Example -->
+  <div class="code-example framework-example">
+    <div class="example-header">
+      <h4>Dagger 2</h4>
+      <span class="complexity-badge">Complexity: 4/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="@Component(modules = {DatabaseModule.class})
 @Singleton
 public interface ApplicationComponent {
     UserService userService();
@@ -940,12 +855,8 @@ public class UserServiceTest {
         UserService service = component.userService();
         // Test logic...
     }
-}" aria-label="Copy Dagger 2 code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Dagger 2"><code class="language-java">@Component(modules = {DatabaseModule.class})
+}">Copy</button>
+      <pre><code class="language-java">@Component(modules = {DatabaseModule.class})
 @Singleton
 public interface ApplicationComponent {
     UserService userService();
@@ -972,23 +883,17 @@ public class UserServiceTest {
         // Test logic...
     }
 }</code></pre>
-      </div>
-    </article>
+    </div>
+  </div>
 
-    <!-- Vanilla DI Example -->
-    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
-      <div class="framework-header vanilla">
-        <h4 class="framework-name">Vanilla DI</h4>
-        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
-          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="Vanilla DI code example">
-        <div class="code-header vanilla">
-          <span class="code-label">Vanilla DI Implementation</span>
-          <button class="copy-button" data-clipboard-text="public class UserServiceTest {
+  <!-- Vanilla DI Example -->
+  <div class="code-example vanilla-example">
+    <div class="example-header">
+      <h4>Vanilla DI</h4>
+      <span class="complexity-badge vanilla">Complexity: 0/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="public class UserServiceTest {
     @Test
     public void testFindUser() {
         // Create test dependencies
@@ -1007,12 +912,8 @@ public class UserServiceTest {
         assertEquals(expectedUser, result);
         verify(mockRepository).findById(1L);
     }
-}" aria-label="Copy Vanilla DI code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public class UserServiceTest {
+}">Copy</button>
+      <pre><code class="language-java">public class UserServiceTest {
     @Test
     public void testFindUser() {
         // Create test dependencies
@@ -1032,35 +933,23 @@ public class UserServiceTest {
         verify(mockRepository).findById(1L);
     }
 }</code></pre>
-      </div>
-    </article>
+    </div>
   </div>
+</div>
 
-  
-  <div class="comparison-description" role="note" aria-label="Comparison explanation">
-    <p>Shocking revelation: mocks can be passed directly to constructors! This groundbreaking technique eliminates entire test configuration frameworks.</p>
-  </div>
-  
-</section>
+<p class="comparison-note">Shocking revelation: mocks can be passed directly to constructors! This groundbreaking technique eliminates entire test configuration frameworks.</p>
 
-<section class="comparison-section" id="micronaut-example" aria-label="Framework comparison: Cloud-Native Framework Comparison">
-  <h3 class="comparison-title">Cloud-Native Framework Comparison</h3>
+<h3>Cloud-Native Framework Comparison</h3>
 
-  <div class="comparison-grid" role="group" aria-label="Code comparison between Micronaut and Vanilla DI">
-    <!-- Framework Example -->
-    <article class="framework-example" role="region" aria-label="Micronaut implementation example">
-      <div class="framework-header">
-        <h4 class="framework-name">Micronaut</h4>
-        <div class="complexity-indicator" role="img" aria-label="Complexity score: 5 out of 10">
-          <span class="complexity-score complexity-5" aria-hidden="true">5</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="Micronaut code example">
-        <div class="code-header">
-          <span class="code-label">Micronaut Implementation</span>
-          <button class="copy-button" data-clipboard-text="@Singleton
+<div class="comparison-grid">
+  <!-- Framework Example -->
+  <div class="code-example framework-example">
+    <div class="example-header">
+      <h4>Micronaut</h4>
+      <span class="complexity-badge">Complexity: 5/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="@Singleton
 public class UserService {
     private final UserRepository userRepository;
     private final NotificationService notificationService;
@@ -1072,7 +961,7 @@ public class UserService {
     }
 
     @Executable
-    public CompletableFuture&lt;User&gt; createUserAsync(CreateUserRequest request) {
+    public CompletableFuture&amp;lt;User&amp;gt; createUserAsync(CreateUserRequest request) {
         return CompletableFuture.supplyAsync(() -&gt; {
             User user = new User(request.getName(), request.getEmail());
             User savedUser = userRepository.save(user);
@@ -1101,12 +990,8 @@ public class MicronautApp {
         // Framework handles dependency injection
         Micronaut.run(MicronautApp.class, args);
     }
-}" aria-label="Copy Micronaut code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Micronaut"><code class="language-java">@Singleton
+}">Copy</button>
+      <pre><code class="language-java">@Singleton
 public class UserService {
     private final UserRepository userRepository;
     private final NotificationService notificationService;
@@ -1118,7 +1003,7 @@ public class UserService {
     }
 
     @Executable
-    public CompletableFuture<User> createUserAsync(CreateUserRequest request) {
+    public CompletableFuture&lt;User&gt; createUserAsync(CreateUserRequest request) {
         return CompletableFuture.supplyAsync(() -&gt; {
             User user = new User(request.getName(), request.getEmail());
             User savedUser = userRepository.save(user);
@@ -1147,24 +1032,18 @@ public class MicronautApp {
         // Framework handles dependency injection
         Micronaut.run(MicronautApp.class, args);
     }
-}&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-    &lt;/article&gt;
+}</code></pre>
+    </div>
+  </div>
 
-    <!-- Vanilla DI Example -->
-    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
-      <div class="framework-header vanilla">
-        <h4 class="framework-name">Vanilla DI</h4>
-        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
-          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
-
-      <div class="code-container" role="region" aria-label="Vanilla DI code example">
-        <div class="code-header vanilla">
-          <span class="code-label">Vanilla DI Implementation</span>
-          <button class="copy-button" data-clipboard-text="public class UserService {
+  <!-- Vanilla DI Example -->
+  <div class="code-example vanilla-example">
+    <div class="example-header">
+      <h4>Vanilla DI</h4>
+      <span class="complexity-badge vanilla">Complexity: 0/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="public class UserService {
     private final UserRepository userRepository;
     private final NotificationService notificationService;
     private final ExecutorService executorService;
@@ -1177,7 +1056,7 @@ public class MicronautApp {
         this.executorService = executorService;
     }
 
-    public CompletableFuture&lt;User&gt; createUserAsync(CreateUserRequest request) {
+    public CompletableFuture&amp;lt;User&amp;gt; createUserAsync(CreateUserRequest request) {
         return CompletableFuture.supplyAsync(() -&gt; {
             User user = new User(request.getName(), request.getEmail());
             User savedUser = userRepository.save(user);
@@ -1218,12 +1097,8 @@ public class Application {
 
         startServer(userService);
     }
-}" aria-label="Copy Vanilla DI code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public class UserService {
+}">Copy</button>
+      <pre><code class="language-java">public class UserService {
     private final UserRepository userRepository;
     private final NotificationService notificationService;
     private final ExecutorService executorService;
@@ -1236,7 +1111,7 @@ public class Application {
         this.executorService = executorService;
     }
 
-    public CompletableFuture<User> createUserAsync(CreateUserRequest request) {
+    public CompletableFuture&lt;User&gt; createUserAsync(CreateUserRequest request) {
         return CompletableFuture.supplyAsync(() -&gt; {
             User user = new User(request.getName(), request.getEmail());
             User savedUser = userRepository.save(user);
@@ -1277,36 +1152,24 @@ public class Application {
 
         startServer(userService);
     }
-}&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-    &lt;/article&gt;
-  &lt;/div&gt;
-
-  
-  <div class="comparison-description" role="note" aria-label="Comparison explanation">
-    <p>Discover the radical concept of reading configuration values and passing them to constructors - a technique so simple it predates cloud computing!</p>
+}</code></pre>
+    </div>
   </div>
-  
-&lt;/section&gt;
+</div>
 
-<section class="comparison-section" id="enterprise-example" aria-label="Framework comparison: Enterprise Java Stack">
-  <h3 class="comparison-title">Enterprise Java Stack</h3>
+<p class="comparison-note">Discover the radical concept of reading configuration values and passing them to constructors - a technique so simple it predates cloud computing!</p>
 
-  <div class="comparison-grid" role="group" aria-label="Code comparison between Jakarta EE + CDI and Vanilla DI">
-    <!-- Framework Example -->
-    <article class="framework-example" role="region" aria-label="Jakarta EE + CDI implementation example">
-      <div class="framework-header">
-        <h4 class="framework-name">Jakarta EE + CDI</h4>
-        <div class="complexity-indicator" role="img" aria-label="Complexity score: 10 out of 10">
-          <span class="complexity-score complexity-10" aria-hidden="true">10</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
+<h3>Enterprise Java Stack</h3>
 
-      <div class="code-container" role="region" aria-label="Jakarta EE + CDI code example">
-        <div class="code-header">
-          <span class="code-label">Jakarta EE + CDI Implementation</span>
-          <button class="copy-button" data-clipboard-text="@Stateless
+<div class="comparison-grid">
+  <!-- Framework Example -->
+  <div class="code-example framework-example">
+    <div class="example-header">
+      <h4>Jakarta EE + CDI</h4>
+      <span class="complexity-badge">Complexity: 10/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="@Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class OrderProcessingService {
     @EJB
@@ -1332,7 +1195,7 @@ public class OrderProcessingService {
 
     @Asynchronous
     @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-    public Future&lt;OrderResult&gt; processOrderAsync(
+    public Future&amp;lt;OrderResult&amp;gt; processOrderAsync(
             @Valid OrderRequest request,
             @NotNull SecurityContext securityContext) {
 
@@ -1347,7 +1210,7 @@ public class OrderProcessingService {
             sendOrderNotification(order);
             auditLogger.logOrderProcessed(order, securityContext.getUserPrincipal());
 
-            return new AsyncResult&lt;&gt;(new OrderResult(order, payment));
+            return new AsyncResult&amp;lt;&amp;gt;(new OrderResult(order, payment));
         } catch (Exception e) {
             // Container handles rollback
             throw new EJBException(&quot;Order processing failed&quot;, e);
@@ -1367,12 +1230,8 @@ public class OrderProcessingService {
 
 // Plus: persistence.xml, ejb-jar.xml, web.xml configuration
 // Plus: Application server deployment descriptors
-// Plus: JNDI resource configuration" aria-label="Copy Jakarta EE + CDI code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Jakarta EE + CDI"><code class="language-java">@Stateless
+// Plus: JNDI resource configuration">Copy</button>
+      <pre><code class="language-java">@Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class OrderProcessingService {
     @EJB
@@ -1398,7 +1257,7 @@ public class OrderProcessingService {
 
     @Asynchronous
     @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-    public Future<OrderResult> processOrderAsync(
+    public Future&lt;OrderResult&gt; processOrderAsync(
             @Valid OrderRequest request,
             @NotNull SecurityContext securityContext) {
 
@@ -1433,24 +1292,84 @@ public class OrderProcessingService {
 
 // Plus: persistence.xml, ejb-jar.xml, web.xml configuration
 // Plus: Application server deployment descriptors
-// Plus: JNDI resource configuration&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-    &lt;/article&gt;
+// Plus: JNDI resource configuration</code></pre>
+    </div>
+  </div>
 
-    <!-- Vanilla DI Example -->
-    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
-      <div class="framework-header vanilla">
-        <h4 class="framework-name">Vanilla DI</h4>
-        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
-          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
-          <span class="complexity-label">Complexity</span>
-        </div>
-      </div>
+  <!-- Vanilla DI Example -->
+  <div class="code-example vanilla-example">
+    <div class="example-header">
+      <h4>Vanilla DI</h4>
+      <span class="complexity-badge vanilla">Complexity: 0/10</span>
+    </div>
+    <div class="code-block">
+      <button class="copy-btn" data-clipboard-text="public class OrderProcessingService {
+    private final InventoryService inventoryService;
+    private final PaymentService paymentService;
+    private final AuditLogger auditLogger;
+    private final TransactionManager transactionManager;
+    private final EntityManager entityManager;
+    private final MessageProducer messageProducer;
+    private final ExecutorService executorService;
 
-      <div class="code-container" role="region" aria-label="Vanilla DI code example">
-        <div class="code-header vanilla">
-          <span class="code-label">Vanilla DI Implementation</span>
-          <button class="copy-button" data-clipboard-text="public class OrderProcessingService {
+    public OrderProcessingService(
+            InventoryService inventoryService,
+            PaymentService paymentService,
+            AuditLogger auditLogger,
+            TransactionManager transactionManager,
+            EntityManager entityManager,
+            MessageProducer messageProducer,
+            ExecutorService executorService) {
+        this.inventoryService = inventoryService;
+        this.paymentService = paymentService;
+        this.auditLogger = auditLogger;
+        this.transactionManager = transactionManager;
+        this.entityManager = entityManager;
+        this.messageProducer = messageProducer;
+        this.executorService = executorService;
+    }
+
+    public CompletableFuture&amp;lt;OrderResult&amp;gt; processOrderAsync(
+            OrderRequest request,
+            User currentUser) {
+
+        return CompletableFuture.supplyAsync(() -&gt; {
+            return transactionManager.executeInTransaction(() -&gt; {
+                // Validate request manually (or use bean validation)
+                validateOrderRequest(request);
+
+                Order order = new Order(request);
+                entityManager.persist(order);
+
+                inventoryService.reserveItems(order.getItems());
+                PaymentResult payment = paymentService.processPayment(order);
+
+                messageProducer.sendOrderNotification(new OrderNotification(order));
+                auditLogger.logOrderProcessed(order, currentUser);
+
+                return new OrderResult(order, payment);
+            });
+        }, executorService);
+    }
+
+    private void validateOrderRequest(OrderRequest request) {
+        if (request == null || request.getItems().isEmpty()) {
+            throw new IllegalArgumentException(&quot;Invalid order request&quot;);
+        }
+    }
+}
+
+// In your application factory:
+OrderProcessingService orderService = new OrderProcessingService(
+    new DatabaseInventoryService(dataSource),
+    new StripePaymentService(stripeApiKey),
+    new DatabaseAuditLogger(dataSource),
+    new JpaTransactionManager(entityManager),
+    entityManager,
+    new JmsMessageProducer(connectionFactory, orderQueue),
+    Executors.newFixedThreadPool(20)
+);">Copy</button>
+      <pre><code class="language-java">public class OrderProcessingService {
     private final InventoryService inventoryService;
     private final PaymentService paymentService;
     private final AuditLogger auditLogger;
@@ -1501,76 +1420,6 @@ public class OrderProcessingService {
 
     private void validateOrderRequest(OrderRequest request) {
         if (request == null || request.getItems().isEmpty()) {
-            throw new IllegalArgumentException(&quot;Invalid order request&quot;);
-        }
-    }
-}
-
-// In your application factory:
-OrderProcessingService orderService = new OrderProcessingService(
-    new DatabaseInventoryService(dataSource),
-    new StripePaymentService(stripeApiKey),
-    new DatabaseAuditLogger(dataSource),
-    new JpaTransactionManager(entityManager),
-    entityManager,
-    new JmsMessageProducer(connectionFactory, orderQueue),
-    Executors.newFixedThreadPool(20)
-);" aria-label="Copy Vanilla DI code to clipboard">
-            <span class="copy-icon" aria-hidden="true">📋</span>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public class OrderProcessingService {
-    private final InventoryService inventoryService;
-    private final PaymentService paymentService;
-    private final AuditLogger auditLogger;
-    private final TransactionManager transactionManager;
-    private final EntityManager entityManager;
-    private final MessageProducer messageProducer;
-    private final ExecutorService executorService;
-
-    public OrderProcessingService(
-            InventoryService inventoryService,
-            PaymentService paymentService,
-            AuditLogger auditLogger,
-            TransactionManager transactionManager,
-            EntityManager entityManager,
-            MessageProducer messageProducer,
-            ExecutorService executorService) {
-        this.inventoryService = inventoryService;
-        this.paymentService = paymentService;
-        this.auditLogger = auditLogger;
-        this.transactionManager = transactionManager;
-        this.entityManager = entityManager;
-        this.messageProducer = messageProducer;
-        this.executorService = executorService;
-    }
-
-    public CompletableFuture<OrderResult> processOrderAsync(
-            OrderRequest request,
-            User currentUser) {
-
-        return CompletableFuture.supplyAsync(() -&gt; {
-            return transactionManager.executeInTransaction(() -&gt; {
-                // Validate request manually (or use bean validation)
-                validateOrderRequest(request);
-
-                Order order = new Order(request);
-                entityManager.persist(order);
-
-                inventoryService.reserveItems(order.getItems());
-                PaymentResult payment = paymentService.processPayment(order);
-
-                messageProducer.sendOrderNotification(new OrderNotification(order));
-                auditLogger.logOrderProcessed(order, currentUser);
-
-                return new OrderResult(order, payment);
-            });
-        }, executorService);
-    }
-
-    private void validateOrderRequest(OrderRequest request) {
-        if (request == null || request.getItems().isEmpty()) {
             throw new IllegalArgumentException("Invalid order request");
         }
     }
@@ -1585,19 +1434,14 @@ OrderProcessingService orderService = new OrderProcessingService(
     entityManager,
     new JmsMessageProducer(connectionFactory, orderQueue),
     Executors.newFixedThreadPool(20)
-);&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-    &lt;/article&gt;
-  &lt;/div&gt;
-
-  
-  <div class="comparison-description" role="note" aria-label="Comparison explanation">
-    <p>Experience the jaw-dropping simplicity of creating objects with 'new' and passing them around. No application servers, no JNDI wizardry, no enterprise consultants required!</p>
+);</code></pre>
+    </div>
   </div>
-  
-&lt;/section&gt;
+</div>
 
----
+<p class="comparison-note">Experience the jaw-dropping simplicity of creating objects with 'new' and passing them around. No application servers, no JNDI wizardry, no enterprise consultants required!</p>
+
+<hr />
 
 <div class="support-section">
   <h2>Support Vanilla DI Development</h2>
@@ -1620,12 +1464,11 @@ OrderProcessingService orderService = new OrderProcessingService(
   <p class="support-note">Fun fact: 100% of donations are immediately invested in not implementing features!</p>
 </div>
 
-The **Vanilla DI** team meticulously maintains all zero lines of code in the framework and works tirelessly each day to ensure nothing is added, changed, or improved.
+<p>The <strong>Vanilla DI</strong> team meticulously maintains all zero lines of code in the framework and works tirelessly each day to ensure nothing is added, changed, or improved.</p>
 
-Made with ❤️ for Java developers who've grown tired of framework complexity and yearn for the days when `new` was enough.
+<p>Made with ❤️ for Java developers who’ve grown tired of framework complexity and yearn for the days when <code class="language-plaintext highlighter-rouge">new</code> was enough.</p>
 
-*Inspired by the excellent [Vanilla JS](http://vanilla-js.com) and powered by constructor injection since 1995*
-</OrderResult></code></pre></div></article></OrderResult></code></pre></div></article></div></section></User></code></pre></div></article></User></code></pre></div></article></div></section>
+<p><em>Inspired by the excellent <a href="http://vanilla-js.com">Vanilla JS</a> and powered by constructor injection since 1995</em></p>
 
   </article>
 </div>

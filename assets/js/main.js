@@ -38,18 +38,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Copy to clipboard functionality
-  const copyButtons = document.querySelectorAll('.copy-button');
+  const copyButtons = document.querySelectorAll('.copy-btn');
   copyButtons.forEach(button => {
     button.addEventListener('click', async function() {
       const textToCopy = this.getAttribute('data-clipboard-text');
-      const copyText = this.querySelector('.copy-text');
-      const originalText = copyText.textContent;
+      const originalText = this.textContent;
 
       try {
         await navigator.clipboard.writeText(textToCopy);
-        copyText.textContent = 'Copied!';
+        this.textContent = 'Copied!';
         setTimeout(() => {
-          copyText.textContent = originalText;
+          this.textContent = originalText;
         }, 2000);
       } catch (err) {
         console.error('Failed to copy text: ', err);
@@ -60,9 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
         textArea.select();
         try {
           document.execCommand('copy');
-          copyText.textContent = 'Copied!';
+          this.textContent = 'Copied!';
           setTimeout(() => {
-            copyText.textContent = originalText;
+            this.textContent = originalText;
           }, 2000);
         } catch (fallbackErr) {
           console.error('Fallback copy failed: ', fallbackErr);

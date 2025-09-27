@@ -6,8 +6,9 @@ url: "https://vanilla-di.com"
 baseurl: ""
 
 # Environment-specific settings
-# This ensures SEO tags use production URLs even in development
-production_url: "https://vanilla-di.com"
+# Force production URLs in all environments (development and production)
+# This ensures SEO tags always use production URLs even in development
+JEKYLL_ENV: production
 
 # Build settings
 markdown: kramdown
@@ -43,6 +44,9 @@ sass:
 # Production URL override for development
 # This ensures consistent URLs in meta tags
 production_url: "https://vanilla-di.com"
+
+# Override environment to ensure production URLs in development
+environment: production
 
 # Exclude from processing
 exclude:
