@@ -1,21 +1,18 @@
 ---
-layout: default
+layout: page
 title: Vanilla DI - A fast, lightweight, cross-platform Java Dependency Injection framework
 ---
 
-# Vanilla DI
-
-**A fast, lightweight, cross-platform Java Dependency Injection framework**
-
-<div class="numbers-highlight">
+<div class="hero-section">
+  <h1>🍦 Vanilla DI</h1>
+  <p class="hero-subtitle">A fast, lightweight, cross-platform Java Dependency Injection framework</p>
+</div>
 
 ## The numbers don't lie!
 
 **Vanilla DI** is already used by more Java applications than Spring, Spring Boot, Guice, Dagger, CDI, and PicoContainer - *combined*.
 
 Vanilla DI has the most comprehensive support with 100% of all Java environments, and has perfect compatibility with all existing Java code.
-
-</div>
 
 ## Ready to make the switch?
 
@@ -24,9 +21,7 @@ Stop spending hours learning complex DI frameworks. Choose the superior Vanilla 
 **Final JAR size:** 0 bytes uncompressed, 0 bytes compressed
 Your application will have Vanilla DI loaded into memory before it even requests dependencies.
 
-<div class="getting-started">
-
-## Getting Started
+## Getting Started {#getting-started}
 
 Add Vanilla DI to your project in seconds:
 
@@ -68,59 +63,112 @@ public class MyApplication {
 
 **Pro tip:** The more dependencies you remove, the faster Vanilla DI becomes!
 
-</div>
-
 ## Why choose Vanilla DI?
 
-<div class="features">
+<div class="features-grid">
+  <div class="feature-card">
+    <h3 data-emoji="🚀">Blazing Fast</h3>
+    <p>Zero reflection overhead. Zero proxy creation. Zero annotation scanning. Just pure Java performance.</p>
+  </div>
 
-<div class="feature-item">
+  <div class="feature-card">
+    <h3 data-emoji="📦">Zero Dependencies</h3>
+    <p>No external JARs. No classpath pollution. No version conflicts. Just your code.</p>
+  </div>
 
-### 🚀 Blazing Fast
-Zero reflection overhead. Zero proxy creation. Zero annotation scanning. Just pure Java performance.
+  <div class="feature-card">
+    <h3 data-emoji="🎯">Explicit and Clear</h3>
+    <p>No magic. No hidden behavior. You can see exactly what's happening in your dependency graph.</p>
+  </div>
 
+  <div class="feature-card">
+    <h3 data-emoji="🔧">No Configuration</h3>
+    <p>No XML files. No annotations to learn. No framework-specific concepts. Just Java constructors.</p>
+  </div>
 </div>
 
-<div class="feature-item">
-
-### 📦 Zero Dependencies
-No external JARs. No classpath pollution. No version conflicts. Just your code.
-
-</div>
-
-<div class="feature-item">
-
-### 🎯 Explicit and Clear
-No magic. No hidden behavior. You can see exactly what's happening in your dependency graph.
-
-</div>
-
-<div class="feature-item">
-
-### 🔧 No Configuration
-No XML files. No annotations to learn. No framework-specific concepts. Just Java constructors.
-
-</div>
-
-</div>
-
-## Performance Comparison
+## Performance Comparison {#performance}
 
 Don't just take our word for it! Here's how **Vanilla DI** stacks up against other "popular" frameworks based on actual benchmark data:
 
-<div class="table-container">
-
-{: .performance-table}
-| Framework | Startup Time* | Memory Usage** | JAR Size*** | Reflection Calls | Magic Level |
-|-----------|---------------|-----------------|----------|------------------|-------------|
-| **Vanilla DI** | **3ms** | **~22MB base** | **0 bytes** | **0** | **None** ✅ |
-| Dagger 2 | 46ms | ~25MB + app | ~1-3MB | Zero**** | Low 🃏 |
-| Google Guice | 458ms | ~30-40MB + app | ~2-5MB | Hundreds | Medium 🎩 |
-| Quarkus | 0.5-1.5 seconds | ~180MB heap | 15-25MB JAR | Minimal***** | Medium-Low 🎭 |
-| Micronaut | 1-2 seconds | 254MB heap | 12MB JAR | Minimal | Medium 🎪 |
-| Spring Framework | 7-13 seconds | 305MB heap | 24MB+ JAR | Thousands | High 🪄 |
-| Spring Boot | 3-7 seconds | 305MB+ heap | 24-50MB JAR | Thousands | Very High 🔮 |
-| CDI/Jakarta EE | 10-20 seconds | 400-600MB+ | 50-200MB+ | Thousands | Extreme 🧙‍♂️ |
+<table class="performance-table">
+  <thead>
+    <tr>
+      <th>Framework</th>
+      <th>Startup Time*</th>
+      <th>Memory Usage**</th>
+      <th>JAR Size***</th>
+      <th>Reflection Calls</th>
+      <th>Magic Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="vanilla-row">
+      <td data-label="Framework"><strong>Vanilla DI</strong></td>
+      <td data-label="Startup Time"><strong>3ms</strong></td>
+      <td data-label="Memory Usage"><strong>~22MB base</strong></td>
+      <td data-label="JAR Size"><strong>0 bytes</strong></td>
+      <td data-label="Reflection Calls"><strong>0</strong></td>
+      <td data-label="Magic Level"><span class="magic-level"><strong>None</strong> ✅</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Dagger 2</td>
+      <td data-label="Startup Time">46ms</td>
+      <td data-label="Memory Usage">~25MB + app</td>
+      <td data-label="JAR Size">~1-3MB</td>
+      <td data-label="Reflection Calls">Zero****</td>
+      <td data-label="Magic Level"><span class="magic-level">Low 🃏</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Google Guice</td>
+      <td data-label="Startup Time">458ms</td>
+      <td data-label="Memory Usage">~30-40MB + app</td>
+      <td data-label="JAR Size">~2-5MB</td>
+      <td data-label="Reflection Calls">Hundreds</td>
+      <td data-label="Magic Level"><span class="magic-level">Medium 🎩</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Quarkus</td>
+      <td data-label="Startup Time">0.5-1.5 seconds</td>
+      <td data-label="Memory Usage">~180MB heap</td>
+      <td data-label="JAR Size">15-25MB JAR</td>
+      <td data-label="Reflection Calls">Minimal*****</td>
+      <td data-label="Magic Level"><span class="magic-level">Medium-Low 🎭</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Micronaut</td>
+      <td data-label="Startup Time">1-2 seconds</td>
+      <td data-label="Memory Usage">254MB heap</td>
+      <td data-label="JAR Size">12MB JAR</td>
+      <td data-label="Reflection Calls">Minimal</td>
+      <td data-label="Magic Level"><span class="magic-level">Medium 🎪</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Spring Framework</td>
+      <td data-label="Startup Time">7-13 seconds</td>
+      <td data-label="Memory Usage">305MB heap</td>
+      <td data-label="JAR Size">24MB+ JAR</td>
+      <td data-label="Reflection Calls">Thousands</td>
+      <td data-label="Magic Level"><span class="magic-level">High 🪄</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Spring Boot</td>
+      <td data-label="Startup Time">3-7 seconds</td>
+      <td data-label="Memory Usage">305MB+ heap</td>
+      <td data-label="JAR Size">24-50MB JAR</td>
+      <td data-label="Reflection Calls">Thousands</td>
+      <td data-label="Magic Level"><span class="magic-level">Very High 🔮</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">CDI/Jakarta EE</td>
+      <td data-label="Startup Time">10-20 seconds</td>
+      <td data-label="Memory Usage">400-600MB+</td>
+      <td data-label="JAR Size">50-200MB+</td>
+      <td data-label="Reflection Calls">Thousands</td>
+      <td data-label="Magic Level"><span class="magic-level">Extreme 🧙‍♂️</span></td>
+    </tr>
+  </tbody>
+</table>
 
 ### Data Sources & Disclaimers
 
@@ -182,19 +230,16 @@ public class Application {
 
 **Benchmark Context:** These measurements come from controlled benchmarks on minimal applications. Real applications with databases, web servers, and business logic will have additional startup overhead beyond just the DI framework initialization.
 
-</div>
-
-## See how simple it is!
+## See how simple it is! {#examples}
 
 Here are some examples of common dependency injection tasks in **Vanilla DI** and other frameworks:
 
-### Basic Service Injection
-
-<div class="framework-comparison">
-
-#### Spring Framework
-```java
-@Service
+{% include framework-comparison.html
+   id="basic-service"
+   title="Basic Service Injection"
+   framework_name="Spring Framework"
+   complexity="8"
+   code="@Service
 public class UserService {
     @Autowired
     private UserRepository userRepository;
@@ -219,12 +264,8 @@ public class UserRepository {
 @EnableJpaRepositories
 public class AppConfig {
     // Complex configuration...
-}
-```
-
-#### Vanilla DI
-```java
-public class UserService {
+}"
+   vanilla_code="public class UserService {
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
@@ -251,18 +292,16 @@ public class UserRepository {
 // In your main method or factory:
 EntityManager entityManager = createEntityManager();
 UserRepository repository = new UserRepository(entityManager);
-UserService service = new UserService(repository);
-```
+UserService service = new UserService(repository);"
+   description="Notice how Vanilla DI requires zero annotations, configuration classes, or magic autowiring. Just plain constructors and explicit dependencies."
+%}
 
-</div>
-
-### Complex Dependency Graph
-
-<div class="framework-comparison">
-
-#### Google Guice
-```java
-public class DatabaseModule extends AbstractModule {
+{% include framework-comparison.html
+   id="complex-dependency"
+   title="Complex Dependency Graph"
+   framework_name="Google Guice"
+   complexity="6"
+   code="public class DatabaseModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(UserRepository.class).to(JpaUserRepository.class);
@@ -294,12 +333,8 @@ public class OrderService {
 
 // Bootstrap
 Injector injector = Guice.createInjector(new DatabaseModule());
-OrderService orderService = injector.getInstance(OrderService.class);
-```
-
-#### Vanilla DI
-```java
-public class OrderService {
+OrderService orderService = injector.getInstance(OrderService.class);"
+   vanilla_code="public class OrderService {
     private final UserRepository userRepository;
     private final OrderRepository orderRepository;
     private final EmailService emailService;
@@ -327,32 +362,30 @@ OrderService orderService = new OrderService(
     userRepository,
     orderRepository,
     emailService
-);
-```
+);"
+   description="No modules, no binding configuration, no annotations. Just clear constructor dependencies that any Java developer can understand instantly."
+%}
 
-</div>
-
-### Conditional Dependencies
-
-<div class="framework-comparison">
-
-#### Spring Boot with Profiles
-```java
-@Service
-@Profile("development")
+{% include framework-comparison.html
+   id="conditional-dependencies"
+   title="Conditional Dependencies"
+   framework_name="Spring Boot"
+   complexity="9"
+   code="@Service
+@Profile(\"development\")
 public class MockEmailService implements EmailService {
     public void sendEmail(String to, String message) {
-        System.out.println("Mock email: " + message);
+        System.out.println(\"Mock email: \" + message);
     }
 }
 
 @Service
-@Profile("production")
+@Profile(\"production\")
 public class SmtpEmailService implements EmailService {
-    @Value("${smtp.host}")
+    @Value(\"${smtp.host}\")
     private String smtpHost;
 
-    @Value("${smtp.port}")
+    @Value(\"${smtp.port}\")
     private int smtpPort;
 
     public void sendEmail(String to, String message) {
@@ -365,30 +398,20 @@ public class NotificationController {
     @Autowired
     private EmailService emailService; // Magic injection
 
-    @PostMapping("/notify")
+    @PostMapping(\"/notify\")
     public void notify(@RequestBody NotificationRequest request) {
         emailService.sendEmail(request.getEmail(), request.getMessage());
     }
 }
 
-# application-development.properties
-smtp.host=localhost
-smtp.port=1025
-
-# application-production.properties
-smtp.host=smtp.company.com
-smtp.port=587
-```
-
-#### Vanilla DI
-```java
-public interface EmailService {
+# Plus separate property files for each environment"
+   vanilla_code="public interface EmailService {
     void sendEmail(String to, String message);
 }
 
 public class MockEmailService implements EmailService {
     public void sendEmail(String to, String message) {
-        System.out.println("Mock email: " + message);
+        System.out.println(\"Mock email: \" + message);
     }
 }
 
@@ -421,131 +444,25 @@ public class NotificationController {
 // In your application factory:
 public class ApplicationFactory {
     public static NotificationController createController(boolean isDevelopment) {
-        EmailService emailService;
-
-        if (isDevelopment) {
-            emailService = new MockEmailService();
-        } else {
-            emailService = new SmtpEmailService("smtp.company.com", 587);
-        }
+        EmailService emailService = isDevelopment ?
+            new MockEmailService() :
+            new SmtpEmailService(\"smtp.company.com\", 587);
 
         return new NotificationController(emailService);
     }
-}
-```
+}"
+   description="No profiles, no property injection, no environment-specific configuration files. Just a simple boolean and clean constructor injection."
+%}
 
-</div>
-
-### Enterprise Java (Jakarta EE / Java EE)
-
-<div class="framework-comparison">
-
-#### CDI (Contexts and Dependency Injection)
-```java
-@Stateless
-@Named("userService")
-public class UserService {
-    @EJB
-    private UserRepository userRepository;
-
-    @Inject
-    private Logger logger;
-
-    @Resource
-    private UserTransaction userTransaction;
-
-    public void createUser(User user) {
-        try {
-            userTransaction.begin();
-            userRepository.save(user);
-            userTransaction.commit();
-            logger.info("User created: " + user.getId());
-        } catch (Exception e) {
-            userTransaction.rollback();
-            throw e;
-        }
-    }
-}
-
-@Singleton
-@Startup
-public class UserRepository {
-    @PersistenceContext
-    private EntityManager entityManager;
-
-    public void save(User user) {
-        entityManager.persist(user);
-    }
-}
-
-// META-INF/beans.xml required
-// Complex application server configuration required
-```
-
-#### Vanilla DI
-```java
-public class UserService {
-    private final UserRepository userRepository;
-    private final Logger logger;
-    private final TransactionManager transactionManager;
-
-    public UserService(UserRepository userRepository,
-                      Logger logger,
-                      TransactionManager transactionManager) {
-        this.userRepository = userRepository;
-        this.logger = logger;
-        this.transactionManager = transactionManager;
-    }
-
-    public void createUser(User user) {
-        transactionManager.executeInTransaction(() -> {
-            userRepository.save(user);
-            logger.info("User created: " + user.getId());
-        });
-    }
-}
-
-public class UserRepository {
-    private final EntityManager entityManager;
-
-    public UserRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
-    public void save(User user) {
-        entityManager.persist(user);
-    }
-}
-
-// In your application:
-Logger logger = LoggerFactory.getLogger(UserService.class);
-EntityManager entityManager = createEntityManager();
-TransactionManager transactionManager = new JpaTransactionManager(entityManager);
-UserRepository repository = new UserRepository(entityManager);
-UserService service = new UserService(repository, logger, transactionManager);
-```
-
-</div>
-
-### Testing with Mocks
-
-<div class="framework-comparison">
-
-#### Dagger 2 with Testing
-```java
-@Component(modules = {DatabaseModule.class})
+{% include framework-comparison.html
+   id="testing-mocks"
+   title="Testing with Mocks"
+   framework_name="Dagger 2"
+   complexity="4"
+   code="@Component(modules = {DatabaseModule.class})
 @Singleton
 public interface ApplicationComponent {
     UserService userService();
-}
-
-@Module
-public class DatabaseModule {
-    @Provides
-    @Singleton
-    UserRepository provideUserRepository() {
-        return new DatabaseUserRepository();
-    }
 }
 
 @Module
@@ -568,17 +485,13 @@ public class UserServiceTest {
         UserService service = component.userService();
         // Test logic...
     }
-}
-```
-
-#### Vanilla DI
-```java
-public class UserServiceTest {
+}"
+   vanilla_code="public class UserServiceTest {
     @Test
     public void testFindUser() {
         // Create test dependencies
         UserRepository mockRepository = Mockito.mock(UserRepository.class);
-        User expectedUser = new User(1L, "John");
+        User expectedUser = new User(1L, \"John\");
 
         when(mockRepository.findById(1L)).thenReturn(expectedUser);
 
@@ -592,142 +505,32 @@ public class UserServiceTest {
         assertEquals(expectedUser, result);
         verify(mockRepository).findById(1L);
     }
-}
-```
-
-</div>
-
-### Cloud-Native Framework
-
-<div class="framework-comparison">
-
-#### Quarkus (CDI with Build-time Optimization)
-```java
-@ApplicationScoped
-public class UserService {
-    @Inject
-    UserRepository userRepository;
-
-    @Inject
-    Logger logger;
-
-    public User findUser(Long id) {
-        logger.info("Finding user: " + id);
-        return userRepository.findById(id);
-    }
-}
-
-@ApplicationScoped
-public class UserRepository {
-    @Inject
-    EntityManager entityManager;
-
-    public User findById(Long id) {
-        return entityManager.find(User.class, id);
-    }
-}
-
-// Configuration with conditional injection
-@ApplicationScoped
-public class EmailServiceProducer {
-    @ConfigProperty(name = "email.mode")
-    String emailMode;
-
-    @Produces
-    @ApplicationScoped
-    public EmailService createEmailService() {
-        return "mock".equals(emailMode) ?
-            new MockEmailService() : new SmtpEmailService();
-    }
-}
-
-// Application bootstrap
-@QuarkusMain
-public class Application {
-    public static void main(String[] args) {
-        // Quarkus CDI processed at build-time
-        // Runtime startup: ~500ms-1.5s
-        Quarkus.run(args);
-    }
-}
-```
-
-#### Vanilla DI
-```java
-public class UserService {
-    private final UserRepository userRepository;
-    private final Logger logger;
-
-    public UserService(UserRepository userRepository, Logger logger) {
-        this.userRepository = userRepository;
-        this.logger = logger;
-    }
-
-    public User findUser(Long id) {
-        logger.info("Finding user: " + id);
-        return userRepository.findById(id);
-    }
-}
-
-public class UserRepository {
-    private final EntityManager entityManager;
-
-    public UserRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
-    public User findById(Long id) {
-        return entityManager.find(User.class, id);
-    }
-}
-
-// Configuration factory
-public class ApplicationFactory {
-    public static UserService createUserService(String emailMode) {
-        Logger logger = LoggerFactory.getLogger(UserService.class);
-        EntityManager entityManager = createEntityManager();
-        UserRepository repository = new UserRepository(entityManager);
-
-        return new UserService(repository, logger);
-    }
-}
-
-// Application bootstrap
-public class Application {
-    public static void main(String[] args) {
-        // No framework overhead: ~3ms for DI
-        UserService service = ApplicationFactory.createUserService(getEmailMode());
-        startServer(service);
-    }
-}
-```
-
-</div>
+}"
+   description="Testing becomes trivial when you just pass the mock in the constructor. No test modules, no component builders, no framework ceremony."
+%}
 
 ---
 
-<div class="coffee-section">
+<div class="support-section">
+  <h2>Support Vanilla DI Development</h2>
 
-## Support Vanilla DI Development
+  <p>Developing the world's most lightweight DI framework is hard work! Help us maintain our 0-byte codebase and continue delivering blazing-fast performance improvements.</p>
 
-Developing the world's most lightweight DI framework is hard work! Help us maintain our 0-byte codebase and continue delivering blazing-fast performance improvements.
+  <a href="https://www.buymeacoffee.com/cchacin" target="_blank" class="support-button">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" />
+  </a>
 
-<a href="https://www.buymeacoffee.com/cchacin" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" />
-</a>
+  <p><strong>Your contribution helps us:</strong></p>
+  <ul class="support-list">
+    <li>Keep the framework dependency-free</li>
+    <li>Maintain zero compilation overhead</li>
+    <li>Continue delivering sub-millisecond startup times</li>
+    <li>Fund our extensive "no-documentation" documentation</li>
+    <li>Support our team of 0 full-time developers</li>
+  </ul>
 
-**Your contribution helps us:**
-- Keep the framework dependency-free ✅
-- Maintain zero compilation overhead ✅
-- Continue delivering sub-millisecond startup times ✅
-- Fund our extensive "no-documentation" documentation ✅
-- Support our team of 0 full-time developers ✅
-
-*Fun fact: 100% of donations go directly toward not adding features to Vanilla DI!*
-
+  <p class="support-note">Fun fact: 100% of donations go directly toward not adding features to Vanilla DI!</p>
 </div>
-
----
 
 The **Vanilla DI** team maintains every line of code in the framework and works hard each day to make sure it stays simple and intuitive.
 

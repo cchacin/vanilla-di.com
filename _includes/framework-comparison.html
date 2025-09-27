@@ -1,0 +1,55 @@
+<div class="comparison-section" id="{{ include.id | default: 'comparison' }}">
+  <h3 class="comparison-title">{{ include.title }}</h3>
+
+  <div class="comparison-grid">
+    <!-- Framework Example -->
+    <div class="framework-example">
+      <div class="framework-header">
+        <h4 class="framework-name">{{ include.framework_name }}</h4>
+        <div class="complexity-indicator">
+          <span class="complexity-score complexity-{{ include.complexity }}">{{ include.complexity }}</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container">
+        <div class="code-header">
+          <span class="code-label">{{ include.framework_name }} Implementation</span>
+          <button class="copy-button" data-clipboard-text="{{ include.code | escape }}">
+            <span class="copy-icon">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre><code class="language-java">{{ include.code }}</code></pre>
+      </div>
+    </div>
+
+    <!-- Vanilla DI Example -->
+    <div class="vanilla-example">
+      <div class="framework-header vanilla">
+        <h4 class="framework-name">Vanilla DI</h4>
+        <div class="complexity-indicator vanilla">
+          <span class="complexity-score complexity-0">0</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container">
+        <div class="code-header vanilla">
+          <span class="code-label">Vanilla DI Implementation</span>
+          <button class="copy-button" data-clipboard-text="{{ include.vanilla_code | escape }}">
+            <span class="copy-icon">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre><code class="language-java">{{ include.vanilla_code }}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  {% if include.description %}
+  <div class="comparison-description">
+    <p>{{ include.description }}</p>
+  </div>
+  {% endif %}
+</div>

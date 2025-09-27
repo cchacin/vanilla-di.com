@@ -1,0 +1,305 @@
+/* Reusable components */
+
+// Framework comparison components
+.comparison-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+  border: 1px solid var(--border-color);
+
+  .comparison-title {
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--text-primary);
+  }
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.framework-example,
+.vanilla-example {
+  background-color: var(--bg-primary);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.vanilla-example {
+  border-color: var(--success-color);
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.05) 0%, var(--bg-primary) 100%);
+
+  .framework-header {
+    background: linear-gradient(135deg, var(--success-color) 0%, #2ecc71 100%);
+    color: white;
+  }
+}
+
+.framework-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, var(--warning-color) 0%, #e67e22 100%);
+  color: white;
+
+  .framework-name {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+}
+
+.complexity-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+
+  .complexity-score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.875rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+
+    &.complexity-0 {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: var(--success-color);
+    }
+  }
+
+  .complexity-label {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    font-weight: 500;
+  }
+}
+
+.code-container {
+  position: relative;
+
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--code-bg);
+    border-bottom: 1px solid var(--border-color);
+
+    .code-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+  }
+
+  pre {
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+.copy-button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+  }
+
+  .copy-icon {
+    font-size: 0.875rem;
+  }
+}
+
+// Performance table component
+.performance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.875rem;
+  background-color: var(--bg-primary);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  th {
+    background-color: var(--code-bg);
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border-color);
+  }
+
+  td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: top;
+  }
+
+  .vanilla-row {
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.1) 0%, rgba(39, 174, 96, 0.05) 100%);
+    font-weight: 600;
+
+    td {
+      border-bottom-color: var(--success-color);
+    }
+  }
+
+  .magic-level {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
+
+  // Mobile responsive table
+  @media (max-width: 768px) {
+    font-size: 0.75rem;
+
+    th, td {
+      padding: 0.5rem;
+    }
+  }
+}
+
+// Hero section component
+.hero-section {
+  text-align: center;
+  padding: 4rem 0;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+  border-radius: 1rem;
+  margin-bottom: 3rem;
+
+  h1 {
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #9b59b6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+}
+
+// Feature cards
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.feature-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+
+    &::before {
+      content: attr(data-emoji);
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+// Coffee/support section
+.support-section {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  margin: 4rem 0;
+
+  h2 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .support-button {
+    display: inline-block;
+    margin: 2rem 0 1rem;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    img {
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .support-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+
+    li {
+      margin: 0.5rem 0;
+      color: rgba(255, 255, 255, 0.9);
+
+      &::before {
+        content: "✅ ";
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .support-note {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 1rem;
+  }
+}

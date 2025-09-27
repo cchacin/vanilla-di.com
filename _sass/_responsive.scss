@@ -1,0 +1,303 @@
+/* Mobile-first responsive design */
+
+// Breakpoints
+$breakpoints: (
+  xs: 320px,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Mixin for media queries
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// Mobile-first base styles
+.container {
+  padding: 0 1rem;
+
+  @include media(md) {
+    padding: 0 2rem;
+  }
+
+  @include media(lg) {
+    padding: 0 3rem;
+  }
+}
+
+// Typography responsive scaling
+html {
+  font-size: 14px;
+
+  @include media(sm) {
+    font-size: 15px;
+  }
+
+  @include media(md) {
+    font-size: 16px;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+
+  @include media(sm) {
+    font-size: 2.25rem;
+  }
+
+  @include media(md) {
+    font-size: 2.5rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+
+  @include media(sm) {
+    font-size: 1.75rem;
+  }
+
+  @include media(md) {
+    font-size: 2rem;
+  }
+}
+
+// Header navigation responsive
+.site-header {
+  .main-nav {
+    padding: 0.75rem 0;
+
+    @include media(md) {
+      padding: 1rem 0;
+    }
+  }
+
+  .site-title {
+    font-size: 1.25rem;
+
+    @include media(md) {
+      font-size: 1.5rem;
+    }
+
+    .site-icon {
+      font-size: 1.5rem;
+
+      @include media(md) {
+        font-size: 1.75rem;
+      }
+    }
+  }
+
+  .nav-links {
+    gap: 1rem;
+
+    @include media(md) {
+      gap: 2rem;
+    }
+  }
+
+  // Mobile menu
+  @media (max-width: 767px) {
+    .nav-toggle {
+      &.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+
+      &.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      &.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+    }
+  }
+}
+
+// Comparison grid responsive
+.comparison-grid {
+  gap: 1rem;
+
+  @include media(md) {
+    gap: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+
+    .framework-example,
+    .vanilla-example {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Performance table responsive
+.performance-table {
+  @media (max-width: 1023px) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    table {
+      min-width: 800px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    font-size: 0.75rem;
+
+    th, td {
+      padding: 0.5rem;
+    }
+
+    // Stack table on very small screens
+    &.stack-mobile {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      tr {
+        border: 1px solid var(--border-color);
+        margin-bottom: 1rem;
+        border-radius: var(--radius-md);
+      }
+
+      td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+
+        &:before {
+          content: attr(data-label) ": ";
+          position: absolute;
+          left: 6px;
+          width: 45%;
+          padding-right: 10px;
+          white-space: nowrap;
+          font-weight: 600;
+          color: var(--text-secondary);
+        }
+      }
+    }
+  }
+}
+
+// Features grid responsive
+.features-grid {
+  grid-template-columns: 1fr;
+
+  @include media(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Hero section responsive
+.hero-section {
+  padding: 2rem 1rem;
+
+  @include media(md) {
+    padding: 4rem 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+
+    @include media(md) {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+// Footer responsive
+.site-footer {
+  .footer-content {
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 1.5rem;
+    }
+  }
+}
+
+// Support section responsive
+.support-section {
+  padding: 2rem 1rem;
+
+  @include media(md) {
+    padding: 3rem 2rem;
+  }
+
+  .support-button img {
+    width: 200px;
+    height: auto;
+
+    @include media(md) {
+      width: 217px;
+    }
+  }
+}
+
+// Code blocks responsive
+pre {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @media (max-width: 767px) {
+    font-size: 0.75rem;
+    padding: 0.75rem;
+  }
+}
+
+// Utility classes for responsive design
+.hidden-mobile {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.hidden-desktop {
+  @include media(md) {
+    display: none !important;
+  }
+}
+
+.text-center-mobile {
+  @media (max-width: 767px) {
+    text-align: center !important;
+  }
+}
+
+// Responsive spacing
+.mb-responsive {
+  margin-bottom: 1rem;
+
+  @include media(md) {
+    margin-bottom: 2rem;
+  }
+}
+
+.mt-responsive {
+  margin-top: 1rem;
+
+  @include media(md) {
+    margin-top: 2rem;
+  }
+}

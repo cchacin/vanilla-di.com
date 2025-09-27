@@ -1,0 +1,105 @@
+# Framework comparison data for easy maintenance
+
+frameworks:
+  spring:
+    name: "Spring Framework"
+    complexity: 8
+    startup_time: "7-13 seconds"
+    memory_usage: "305MB heap"
+    jar_size: "24MB+ JAR"
+    reflection_calls: "Thousands"
+    magic_level: "High 🪄"
+
+  spring_boot:
+    name: "Spring Boot"
+    complexity: 9
+    startup_time: "3-7 seconds"
+    memory_usage: "305MB+ heap"
+    jar_size: "24-50MB JAR"
+    reflection_calls: "Thousands"
+    magic_level: "Very High 🔮"
+
+  guice:
+    name: "Google Guice"
+    complexity: 6
+    startup_time: "458ms"
+    memory_usage: "~30-40MB + app"
+    jar_size: "~2-5MB"
+    reflection_calls: "Hundreds"
+    magic_level: "Medium 🎩"
+
+  dagger:
+    name: "Dagger 2"
+    complexity: 4
+    startup_time: "46ms"
+    memory_usage: "~25MB + app"
+    jar_size: "~1-3MB"
+    reflection_calls: "Zero*"
+    magic_level: "Low 🃏"
+
+  cdi:
+    name: "CDI/Jakarta EE"
+    complexity: 10
+    startup_time: "10-20 seconds"
+    memory_usage: "400-600MB+"
+    jar_size: "50-200MB+"
+    reflection_calls: "Thousands"
+    magic_level: "Extreme 🧙‍♂️"
+
+  quarkus:
+    name: "Quarkus"
+    complexity: 5
+    startup_time: "0.5-1.5 seconds"
+    memory_usage: "~180MB heap"
+    jar_size: "15-25MB JAR"
+    reflection_calls: "Minimal*"
+    magic_level: "Medium-Low 🎭"
+
+  micronaut:
+    name: "Micronaut"
+    complexity: 5
+    startup_time: "1-2 seconds"
+    memory_usage: "254MB heap"
+    jar_size: "12MB JAR"
+    reflection_calls: "Minimal"
+    magic_level: "Medium 🎪"
+
+  vanilla_di:
+    name: "Vanilla DI"
+    complexity: 0
+    startup_time: "3ms"
+    memory_usage: "~22MB base"
+    jar_size: "0 bytes"
+    reflection_calls: "0"
+    magic_level: "None ✅"
+
+comparisons:
+  basic_service:
+    title: "Basic Service Injection"
+    framework: "spring"
+    description: "Simple dependency injection between a service and repository"
+
+  complex_dependency:
+    title: "Complex Dependency Graph"
+    framework: "guice"
+    description: "Multiple dependencies with configuration and lifecycle management"
+
+  conditional_dependencies:
+    title: "Conditional Dependencies"
+    framework: "spring_boot"
+    description: "Environment-based dependency selection and configuration"
+
+  enterprise_cdi:
+    title: "Enterprise Java (Jakarta EE / Java EE)"
+    framework: "cdi"
+    description: "Full enterprise stack with transactions and lifecycle management"
+
+  testing_mocks:
+    title: "Testing with Mocks"
+    framework: "dagger"
+    description: "Test configuration and dependency injection with mock objects"
+
+  cloud_native:
+    title: "Cloud-Native Framework"
+    framework: "quarkus"
+    description: "Build-time optimized dependency injection for cloud deployment"

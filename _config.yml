@@ -1,0 +1,44 @@
+title: "Vanilla DI"
+description: "A fast, lightweight, cross-platform Java Dependency Injection framework"
+author: "Carlos Chacin"
+author_url: "https://carloschac.in"
+url: "https://vanilla-di.com"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections and defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Sass configuration
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Exclude from processing
+exclude:
+  - README.md
+  - JEKYLL_ENHANCEMENT_PLAN.md
+  - CLAUDE.md
+  - .gitignore
