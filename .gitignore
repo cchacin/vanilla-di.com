@@ -41,3 +41,6 @@ node_modules
 bower_components
 .jekyll-metadata
 .jekyll-cache
+
+CLAUDE.md
+.claude

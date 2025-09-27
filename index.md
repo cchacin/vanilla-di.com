@@ -18,9 +18,9 @@ With 100% market penetration across all Java environments and flawless backward 
 
 Stop spending weeks mastering arcane framework configuration. Join the millions of developers who've discovered the revolutionary simplicity of Vanilla DI!
 
-**Final JAR size:** 0 bytes uncompressed, 0 bytes compressed
-**Memory footprint:** Negative bytes (actually *reduces* your application size)
-**Learning curve:** Approximately 3 minutes (including coffee break)
+- **Final JAR size:** 0 bytes uncompressed, 0 bytes compressed
+- **Memory footprint:** Negative bytes (actually *reduces* your application size)
+- **Learning curve:** Approximately 3 minutes (including coffee break)
 
 ## Getting Started {#getting-started}
 
@@ -214,7 +214,9 @@ public static void main(String[] args) {
   startServer(service);
   System.out.println("Application ready!"); // <- DI part is nearly instant
 }
+```
 
+```java
 // Spring Boot application startup (benchmarked at 3-7 seconds typical)
 @SpringBootApplication
 public class Application {
