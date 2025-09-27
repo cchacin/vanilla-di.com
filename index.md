@@ -57,10 +57,10 @@ For enterprise deployments requiring maximum sophistication:
 ```java
 // Behold: the complete Vanilla DI configuration
 public class MyApplication {
-    public static void main(String[] args) {
-        // Configuration complete
-        // No XML, no YAML, no annotations, no tears
-    }
+  public static void main(String[] args) {
+    // Configuration complete
+    // No XML, no YAML, no annotations, no tears
+  }
 }
 ```
 
