@@ -8,34 +8,34 @@ description: "Behold the revolutionary concept of 'new' - a cutting-edge Java ke
 ## Framework Code
 
 ```java
-public class DatabaseModule extends AbstractModule {
-    @Override
-    protected void configure() {
-        bind(UserRepository.class).to(JpaUserRepository.class);
-        bind(OrderRepository.class).to(JpaOrderRepository.class);
-        bind(EmailService.class).to(SmtpEmailService.class);
-    }
+class DatabaseModule extends AbstractModule {
+  @Override
+  void configure() {
+    bind(UserRepository.class).to(JpaUserRepository.class);
+    bind(OrderRepository.class).to(JpaOrderRepository.class);
+    bind(EmailService.class).to(SmtpEmailService.class);
+  }
 
-    @Provides
-    @Singleton
-    DataSource provideDataSource() {
-        // Complex datasource configuration
-    }
+  @Provides
+  @Singleton
+  DataSource provideDataSource() {
+    // Complex datasource configuration
+  }
 }
 
-public class OrderService {
-    @Inject
-    private UserRepository userRepository;
+class OrderService {
+  @Inject
+  UserRepository userRepository;
 
-    @Inject
-    private OrderRepository orderRepository;
+  @Inject
+  OrderRepository orderRepository;
 
-    @Inject
-    private EmailService emailService;
+  @Inject
+  EmailService emailService;
 
-    public void processOrder(Order order) {
-        // Business logic
-    }
+  void processOrder(Order order) {
+    // Business logic
+  }
 }
 
 // Bootstrap
@@ -46,33 +46,33 @@ OrderService orderService = injector.getInstance(OrderService.class);
 ## Vanilla DI Code
 
 ```java
-public class OrderService {
-    private final UserRepository userRepository;
-    private final OrderRepository orderRepository;
-    private final EmailService emailService;
+class OrderService {
+  UserRepository userRepository;
+  OrderRepository orderRepository;
+  EmailService emailService;
 
-    public OrderService(UserRepository userRepository,
-                       OrderRepository orderRepository,
-                       EmailService emailService) {
-        this.userRepository = userRepository;
-        this.orderRepository = orderRepository;
-        this.emailService = emailService;
-    }
+  OrderService(UserRepository userRepository,
+               OrderRepository orderRepository,
+               EmailService emailService) {
+    this.userRepository = userRepository;
+    this.orderRepository = orderRepository;
+    this.emailService = emailService;
+  }
 
-    public void processOrder(Order order) {
-        // Business logic
-    }
+  void processOrder(Order order) {
+    // Business logic
+  }
 }
 
 // In your application factory:
-DataSource dataSource = createDataSource();
-UserRepository userRepository = new JpaUserRepository(dataSource);
-OrderRepository orderRepository = new JpaOrderRepository(dataSource);
-EmailService emailService = new SmtpEmailService();
+var dataSource = createDataSource();
+var userRepository = new JpaUserRepository(dataSource);
+var orderRepository = new JpaOrderRepository(dataSource);
+var emailService = new SmtpEmailService();
 
-OrderService orderService = new OrderService(
-    userRepository,
-    orderRepository,
-    emailService
+var orderService = new OrderService(
+  userRepository,
+  orderRepository,
+  emailService
 );
 ```

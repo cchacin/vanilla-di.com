@@ -27,16 +27,18 @@ Stop spending weeks mastering arcane framework configuration. Join the millions 
 Add Vanilla DI to your project in seconds:
 
 ### Maven
+
 ```xml
 <dependency>
-    <groupId>org.acme</groupId>
-    <artifactId>vanilla-di</artifactId>
-    <version>1.0.0</version>
+  <groupId>org.acme</groupId>
+  <artifactId>vanilla-di</artifactId>
+  <version>1.0.0</version>
 </dependency>
 ```
 
 ### Gradle
-```gradle
+
+```groovy
 implementation 'org.acme:vanilla-di:1.0.0'
 ```
 
@@ -203,29 +205,29 @@ Don't just take our word for it! Here's how **Vanilla DI** completely dominates 
 ```java
 // Vanilla DI application startup (benchmarked at ~3ms for DI container creation)
 public static void main(String[] args) {
-    // ~3ms: Create your objects (actual measured time)
-    DatabaseConfig config = new DatabaseConfig("jdbc:postgresql://localhost/mydb");
-    UserRepository repository = new UserRepository(config);
-    UserService service = new UserService(repository);
+  // ~3ms: Create your objects (actual measured time)
+  var config = new DatabaseConfig("jdbc:postgresql://localhost/mydb");
+  var repository = new UserRepository(config);
+  var service = new UserService(repository);
 
-    // Additional time for server startup (not DI-related)
-    startServer(service);
-    System.out.println("Application ready!"); // <- DI part is nearly instant
+  // Additional time for server startup (not DI-related)
+  startServer(service);
+  System.out.println("Application ready!"); // <- DI part is nearly instant
 }
 
 // Spring Boot application startup (benchmarked at 3-7 seconds typical)
 @SpringBootApplication
 public class Application {
-    public static void main(String[] args) {
-        // Based on actual Spring Boot benchmark measurements:
-        // 0-1000ms: JVM startup and class loading
-        // 1000-3000ms: Scanning classpath for components
-        // 3000-4000ms: Creating bean definitions and resolving dependencies
-        // 4000-5000ms: Initializing application context and proxies
-        // 5000-7000ms: Post-processors and auto-configuration
-        SpringApplication.run(Application.class, args);
-        // 7000ms+: Application ready (measured on simple apps)
-    }
+  public static void main(String[] args) {
+    // Based on actual Spring Boot benchmark measurements:
+    // 0-1000ms: JVM startup and class loading
+    // 1000-3000ms: Scanning classpath for components
+    // 3000-4000ms: Creating bean definitions and resolving dependencies
+    // 4000-5000ms: Initializing application context and proxies
+    // 5000-7000ms: Post-processors and auto-configuration
+    SpringApplication.run(Application.class, args);
+    // 7000ms+: Application ready (measured on simple apps)
+  }
 }
 ```
 

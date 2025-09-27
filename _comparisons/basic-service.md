@@ -9,62 +9,62 @@ description: "Marvel at this breakthrough in software engineering: dependencies 
 
 ```java
 @Service
-public class UserService {
-    @Autowired
-    private UserRepository userRepository;
+class UserService {
+  @Autowired
+  UserRepository userRepository;
 
-    public User findUser(Long id) {
-        return userRepository.findById(id);
-    }
+  User findUser(Long id) {
+    return userRepository.findById(id);
+  }
 }
 
 @Repository
-public class UserRepository {
-    @Autowired
-    private EntityManager entityManager;
+class UserRepository {
+  @Autowired
+  EntityManager entityManager;
 
-    public User findById(Long id) {
-        return entityManager.find(User.class, id);
-    }
+  User findById(Long id) {
+    return entityManager.find(User.class, id);
+  }
 }
 
 @Configuration
 @ComponentScan
 @EnableJpaRepositories
-public class AppConfig {
-    // Complex configuration...
+class AppConfig {
+  // Complex configuration...
 }
 ```
 
 ## Vanilla DI Code
 
 ```java
-public class UserService {
-    private final UserRepository userRepository;
+class UserService {
+  UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+  UserService(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
-    public User findUser(Long id) {
-        return userRepository.findById(id);
-    }
+  User findUser(Long id) {
+    return userRepository.findById(id);
+  }
 }
 
-public class UserRepository {
-    private final EntityManager entityManager;
+class UserRepository {
+  EntityManager entityManager;
 
-    public UserRepository(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
+  UserRepository(EntityManager entityManager) {
+    this.entityManager = entityManager;
+  }
 
-    public User findById(Long id) {
-        return entityManager.find(User.class, id);
-    }
+  User findById(Long id) {
+    return entityManager.find(User.class, id);
+  }
 }
 
 // In your main method or factory:
-EntityManager entityManager = createEntityManager();
-UserRepository repository = new UserRepository(entityManager);
-UserService service = new UserService(repository);
+var entityManager = createEntityManager();
+var repository = new UserRepository(entityManager);
+var service = new UserService(repository);
 ```

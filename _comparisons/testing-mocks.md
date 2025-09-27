@@ -10,54 +10,54 @@ description: "Shocking revelation: mocks can be passed directly to constructors!
 ```java
 @Component(modules = {DatabaseModule.class})
 @Singleton
-public interface ApplicationComponent {
-    UserService userService();
+interface ApplicationComponent {
+  UserService userService();
 }
 
 @Module
-public class TestDatabaseModule {
-    @Provides
-    @Singleton
-    UserRepository provideUserRepository() {
-        return Mockito.mock(UserRepository.class);
-    }
+class TestDatabaseModule {
+  @Provides
+  @Singleton
+  UserRepository provideUserRepository() {
+    return Mockito.mock(UserRepository.class);
+  }
 }
 
-public class UserServiceTest {
-    @Test
-    public void testFindUser() {
-        // Complex test component setup
-        ApplicationComponent component = DaggerApplicationComponent.builder()
-            .databaseModule(new TestDatabaseModule())
-            .build();
+class UserServiceTest {
+  @Test
+  void testFindUser() {
+    // Complex test component setup
+    ApplicationComponent component = DaggerApplicationComponent.builder()
+      .databaseModule(new TestDatabaseModule())
+      .build();
 
-        UserService service = component.userService();
-        // Test logic...
-    }
+    UserService service = component.userService();
+    // Test logic...
+  }
 }
 ```
 
 ## Vanilla DI Code
 
 ```java
-public class UserServiceTest {
-    @Test
-    public void testFindUser() {
-        // Create test dependencies
-        UserRepository mockRepository = Mockito.mock(UserRepository.class);
-        User expectedUser = new User(1L, "John");
+class UserServiceTest {
+  @Test
+  void testFindUser() {
+    // Create test dependencies
+    var mockRepository = Mockito.mock(UserRepository.class);
+    var expectedUser = new User(1L, "John");
 
-        when(mockRepository.findById(1L)).thenReturn(expectedUser);
+    when(mockRepository.findById(1L)).thenReturn(expectedUser);
 
-        // Create service with test dependencies
-        UserService service = new UserService(mockRepository);
+    // Create service with test dependencies
+    var service = new UserService(mockRepository);
 
-        // Test
-        User result = service.findUser(1L);
+    // Test
+    var result = service.findUser(1L);
 
-        // Verify
-        assertEquals(expectedUser, result);
-        verify(mockRepository).findById(1L);
-    }
+    // Verify
+    assertEquals(expectedUser, result);
+    verify(mockRepository).findById(1L);
+  }
 }
 ```
