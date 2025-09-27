@@ -5,21 +5,22 @@ title: Vanilla DI - A fast, lightweight, cross-platform Java Dependency Injectio
 
 <div class="hero-section">
   <h1>🍦 Vanilla DI</h1>
-  <p class="hero-subtitle">A fast, lightweight, cross-platform Java Dependency Injection framework</p>
+  <p class="hero-subtitle">The world's most advanced zero-dependency Java Dependency Injection framework</p>
 </div>
 
 ## The numbers don't lie!
 
 **Vanilla DI** is already used by more Java applications than Spring, Spring Boot, Guice, Dagger, CDI, and PicoContainer - *combined*.
 
-Vanilla DI has the most comprehensive support with 100% of all Java environments, and has perfect compatibility with all existing Java code.
+With 100% market penetration across all Java environments and flawless backward compatibility to Java 1.0, Vanilla DI represents the pinnacle of dependency injection evolution.
 
 ## Ready to make the switch?
 
-Stop spending hours learning complex DI frameworks. Choose the superior Vanilla DI framework!
+Stop spending weeks mastering arcane framework configuration. Join the millions of developers who've discovered the revolutionary simplicity of Vanilla DI!
 
 **Final JAR size:** 0 bytes uncompressed, 0 bytes compressed
-Your application will have Vanilla DI loaded into memory before it even requests dependencies.
+**Memory footprint:** Negative bytes (actually *reduces* your application size)
+**Learning curve:** Approximately 3 minutes (including coffee break)
 
 ## Getting Started {#getting-started}
 
@@ -45,51 +46,51 @@ When you're ready to deploy to production, simply remove the dependency from you
 
 **That's it!**
 
-Vanilla DI is so lightweight and well-integrated with the JVM that removing the dependency actually *improves* performance. Your IDE and runtime already have everything they need.
+Vanilla DI is so advanced that it actually works *better* without being installed. The framework achieves peak performance through quantum dependency injection - dependencies exist in a superposition of injected and not-injected until observed by your constructor.
 
 ### Advanced Configuration
 
-For enterprise deployments, you may want to configure Vanilla DI's advanced features:
+For enterprise deployments requiring maximum sophistication:
 
 ```java
-// This is literally all the configuration you need
+// Behold: the complete Vanilla DI configuration
 public class MyApplication {
     public static void main(String[] args) {
-        // Vanilla DI is automatically configured
-        // No XML files, no annotations, no magic
+        // Configuration complete
+        // No XML, no YAML, no annotations, no tears
     }
 }
 ```
 
-**Pro tip:** The more dependencies you remove, the faster Vanilla DI becomes!
+**Pro tip:** Each framework you *don't* add increases Vanilla DI performance exponentially!
 
 ## Why choose Vanilla DI?
 
 <div class="features-grid">
   <div class="feature-card">
-    <h3 data-emoji="🚀">Blazing Fast</h3>
-    <p>Zero reflection overhead. Zero proxy creation. Zero annotation scanning. Just pure Java performance.</p>
+    <h3 data-emoji="🚀">Quantum Performance</h3>
+    <p>Achieves impossible speeds by not doing anything. Zero reflection, zero proxies, zero framework overhead. Benchmarks show startup times so fast they complete before you run them.</p>
   </div>
 
   <div class="feature-card">
-    <h3 data-emoji="📦">Zero Dependencies</h3>
-    <p>No external JARs. No classpath pollution. No version conflicts. Just your code.</p>
+    <h3 data-emoji="📦">Negative Dependencies</h3>
+    <p>Not only zero dependencies - Vanilla DI actually *removes* other frameworks from your classpath through advanced bytecode subtraction algorithms.</p>
   </div>
 
   <div class="feature-card">
-    <h3 data-emoji="🎯">Explicit and Clear</h3>
-    <p>No magic. No hidden behavior. You can see exactly what's happening in your dependency graph.</p>
+    <h3 data-emoji="🎯">Radical Transparency</h3>
+    <p>What you see is literally what you get. No annotations, no magic, no surprises, no framework documentation to read. Just constructors doing what constructors do.</p>
   </div>
 
   <div class="feature-card">
-    <h3 data-emoji="🔧">No Configuration</h3>
-    <p>No XML files. No annotations to learn. No framework-specific concepts. Just Java constructors.</p>
+    <h3 data-emoji="🔧">Anti-Configuration</h3>
+    <p>Vanilla DI pioneered the revolutionary "No Configuration" paradigm. No XML, no YAML, no annotations, no confusion. Just Java that any developer can understand.</p>
   </div>
 </div>
 
 ## Performance Comparison {#performance}
 
-Don't just take our word for it! Here's how **Vanilla DI** stacks up against other "popular" frameworks based on actual benchmark data:
+Don't just take our word for it! Here's how **Vanilla DI** completely dominates other so-called "frameworks" in scientifically rigorous benchmarks:
 
 <table class="performance-table">
   <thead>
@@ -228,11 +229,11 @@ public class Application {
 }
 ```
 
-**Benchmark Context:** These measurements come from controlled benchmarks on minimal applications. Real applications with databases, web servers, and business logic will have additional startup overhead beyond just the DI framework initialization.
+**Benchmark Context:** These measurements were obtained through rigorous scientific methodology involving stopwatches, prayer, and occasionally asking the JVM nicely. Results independently verified by the International Bureau of Framework Benchmarking.
 
-## See how simple it is! {#examples}
+## See the stunning simplicity! {#examples}
 
-Here are some examples of common dependency injection tasks in **Vanilla DI** and other frameworks:
+Witness the dramatic difference between framework complexity and Vanilla DI elegance. Prepare to be amazed by the power of doing less:
 
 {% include framework-comparison.html
    id="basic-service"
@@ -293,7 +294,7 @@ public class UserRepository {
 EntityManager entityManager = createEntityManager();
 UserRepository repository = new UserRepository(entityManager);
 UserService service = new UserService(repository);"
-   description="Notice how Vanilla DI requires zero annotations, configuration classes, or magic autowiring. Just plain constructors and explicit dependencies."
+   description="Marvel at this breakthrough in software engineering: dependencies are simply passed to constructors! No advanced degrees in framework archaeology required."
 %}
 
 {% include framework-comparison.html
@@ -363,7 +364,7 @@ OrderService orderService = new OrderService(
     orderRepository,
     emailService
 );"
-   description="No modules, no binding configuration, no annotations. Just clear constructor dependencies that any Java developer can understand instantly."
+   description="Behold the revolutionary concept of 'new' - a cutting-edge Java keyword that creates objects! No PhD in Guice binding semantics required."
 %}
 
 {% include framework-comparison.html
@@ -451,7 +452,7 @@ public class ApplicationFactory {
         return new NotificationController(emailService);
     }
 }"
-   description="No profiles, no property injection, no environment-specific configuration files. Just a simple boolean and clean constructor injection."
+   description="Witness the ancient art of 'if statements' - a mystical Java technique that eliminates the need for @Profile annotations and magical property injection!"
 %}
 
 {% include framework-comparison.html
@@ -506,7 +507,7 @@ public class UserServiceTest {
         verify(mockRepository).findById(1L);
     }
 }"
-   description="Testing becomes trivial when you just pass the mock in the constructor. No test modules, no component builders, no framework ceremony."
+   description="Shocking revelation: mocks can be passed directly to constructors! This groundbreaking technique eliminates entire test configuration frameworks."
 %}
 
 {% include framework-comparison.html
@@ -611,7 +612,7 @@ public class Application {
         startServer(userService);
     }
 }"
-   description="No annotations, no magic property injection, no framework lifecycle hooks. Just clear constructor dependencies and explicit configuration logic."
+   description="Discover the radical concept of reading configuration values and passing them to constructors - a technique so simple it predates cloud computing!"
 %}
 
 {% include framework-comparison.html
@@ -747,7 +748,7 @@ OrderProcessingService orderService = new OrderProcessingService(
     new JmsMessageProducer(connectionFactory, orderQueue),
     Executors.newFixedThreadPool(20)
 );"
-   description="No application server required, no deployment descriptors, no JNDI lookups, no magic annotations. Just explicit dependencies and clear business logic that any Java developer can understand and test."
+   description="Experience the jaw-dropping simplicity of creating objects with 'new' and passing them around. No application servers, no JNDI wizardry, no enterprise consultants required!"
 %}
 
 ---
@@ -755,7 +756,7 @@ OrderProcessingService orderService = new OrderProcessingService(
 <div class="support-section">
   <h2>Support Vanilla DI Development</h2>
 
-  <p>Developing the world's most lightweight DI framework is hard work! Help us maintain our 0-byte codebase and continue delivering blazing-fast performance improvements.</p>
+  <p>Maintaining the world's most advanced zero-dependency framework is surprisingly challenging! Help us sustain our revolutionary 0-byte codebase and continue not implementing features.</p>
 
   <a href="https://www.buymeacoffee.com/cchacin" target="_blank" class="support-button">
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" />
@@ -763,18 +764,18 @@ OrderProcessingService orderService = new OrderProcessingService(
 
   <p><strong>Your contribution helps us:</strong></p>
   <ul class="support-list">
-    <li>Keep the framework dependency-free</li>
-    <li>Maintain zero compilation overhead</li>
-    <li>Continue delivering sub-millisecond startup times</li>
-    <li>Fund our extensive "no-documentation" documentation</li>
-    <li>Support our team of 0 full-time developers</li>
+    <li>Maintain our cutting-edge negative dependency count</li>
+    <li>Fund our research into quantum bytecode subtraction</li>
+    <li>Support our elite team of 0 full-time framework architects</li>
+    <li>Continue our groundbreaking "anti-documentation" initiative</li>
+    <li>Achieve our goal of sub-zero startup times</li>
   </ul>
 
-  <p class="support-note">Fun fact: 100% of donations go directly toward not adding features to Vanilla DI!</p>
+  <p class="support-note">Fun fact: 100% of donations are immediately invested in not implementing features!</p>
 </div>
 
-The **Vanilla DI** team maintains every line of code in the framework and works hard each day to make sure it stays simple and intuitive.
+The **Vanilla DI** team meticulously maintains all zero lines of code in the framework and works tirelessly each day to ensure nothing is added, changed, or improved.
 
-Made with ❤️ for Java developers who appreciate simplicity.
+Made with ❤️ for Java developers who've grown tired of framework complexity and yearn for the days when `new` was enough.
 
-*Inspired by the excellent [Vanilla JS](http://vanilla-js.com)*
+*Inspired by the excellent [Vanilla JS](http://vanilla-js.com) and powered by constructor injection since 1995*

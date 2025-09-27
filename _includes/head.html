@@ -10,11 +10,13 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Vanilla DI">
   <meta property="og:locale" content="en_US">
-  <meta property="og:image" content="{{ '/assets/images/vanilla-di-og.png' | absolute_url }}">
+  <meta property="og:image" content="{{ site.production_url }}/assets/images/vanilla-di-og.png">
   <meta property="og:image:alt" content="Vanilla DI - The ultimate lightweight Java dependency injection framework">
+  <meta property="og:url" content="{{ site.production_url }}{{ page.url | replace:'index.html','' }}">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@{{ site.author | replace: ' ', '' | downcase }}">
+  <meta name="twitter:url" content="{{ site.production_url }}{{ page.url | replace:'index.html','' }}">
 
   <!-- Enhanced meta descriptions -->
   {% if page.description %}
@@ -31,7 +33,7 @@
   <link rel="preload" href="{{ '/assets/js/main.js' | relative_url }}" as="script">
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <link rel="canonical" href="{{ site.production_url }}{{ page.url | replace:'index.html','' }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
 
   <!-- Favicon with multiple sizes -->
@@ -50,7 +52,7 @@
     "@type": "WebSite",
     "name": "{{ site.title }}",
     "description": "{{ site.description }}",
-    "url": "{{ site.url }}",
+    "url": "{{ site.production_url }}",
     "author": {
       "@type": "Person",
       "name": "{{ site.author }}",

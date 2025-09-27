@@ -5,6 +5,10 @@ author_url: "https://carloschac.in"
 url: "https://vanilla-di.com"
 baseurl: ""
 
+# Environment-specific settings
+# This ensures SEO tags use production URLs even in development
+production_url: "https://vanilla-di.com"
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
@@ -36,9 +40,15 @@ sass:
   sass_dir: _sass
   style: compressed
 
+# Production URL override for development
+# This ensures consistent URLs in meta tags
+production_url: "https://vanilla-di.com"
+
 # Exclude from processing
 exclude:
   - README.md
   - JEKYLL_ENHANCEMENT_PLAN.md
   - CLAUDE.md
   - .gitignore
+  - Gemfile
+  - Gemfile.lock
