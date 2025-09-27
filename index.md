@@ -7,11 +7,15 @@ title: Vanilla DI - A fast, lightweight, cross-platform Java Dependency Injectio
 
 **A fast, lightweight, cross-platform Java Dependency Injection framework**
 
+<div class="numbers-highlight">
+
 ## The numbers don't lie!
 
 **Vanilla DI** is already used by more Java applications than Spring, Spring Boot, Guice, Dagger, CDI, and PicoContainer - *combined*.
 
 Vanilla DI has the most comprehensive support with 100% of all Java environments, and has perfect compatibility with all existing Java code.
+
+</div>
 
 ## Ready to make the switch?
 
@@ -19,6 +23,8 @@ Stop spending hours learning complex DI frameworks. Choose the superior Vanilla 
 
 **Final JAR size:** 0 bytes uncompressed, 0 bytes compressed
 Your application will have Vanilla DI loaded into memory before it even requests dependencies.
+
+<div class="getting-started">
 
 ## Getting Started
 
@@ -62,24 +68,49 @@ public class MyApplication {
 
 **Pro tip:** The more dependencies you remove, the faster Vanilla DI becomes!
 
+</div>
+
 ## Why choose Vanilla DI?
+
+<div class="features">
+
+<div class="feature-item">
 
 ### 🚀 Blazing Fast
 Zero reflection overhead. Zero proxy creation. Zero annotation scanning. Just pure Java performance.
 
+</div>
+
+<div class="feature-item">
+
 ### 📦 Zero Dependencies
 No external JARs. No classpath pollution. No version conflicts. Just your code.
+
+</div>
+
+<div class="feature-item">
 
 ### 🎯 Explicit and Clear
 No magic. No hidden behavior. You can see exactly what's happening in your dependency graph.
 
+</div>
+
+<div class="feature-item">
+
 ### 🔧 No Configuration
 No XML files. No annotations to learn. No framework-specific concepts. Just Java constructors.
+
+</div>
+
+</div>
 
 ## Performance Comparison
 
 Don't just take our word for it! Here's how **Vanilla DI** stacks up against other "popular" frameworks based on actual benchmark data:
 
+<div class="table-container">
+
+{: .performance-table}
 | Framework | Startup Time* | Memory Usage** | JAR Size*** | Reflection Calls | Magic Level |
 |-----------|---------------|-----------------|----------|------------------|-------------|
 | **Vanilla DI** | **3ms** | **~22MB base** | **0 bytes** | **0** | **None** ✅ |
@@ -151,11 +182,15 @@ public class Application {
 
 **Benchmark Context:** These measurements come from controlled benchmarks on minimal applications. Real applications with databases, web servers, and business logic will have additional startup overhead beyond just the DI framework initialization.
 
+</div>
+
 ## See how simple it is!
 
 Here are some examples of common dependency injection tasks in **Vanilla DI** and other frameworks:
 
 ### Basic Service Injection
+
+<div class="framework-comparison">
 
 #### Spring Framework
 ```java
@@ -219,7 +254,11 @@ UserRepository repository = new UserRepository(entityManager);
 UserService service = new UserService(repository);
 ```
 
+</div>
+
 ### Complex Dependency Graph
+
+<div class="framework-comparison">
 
 #### Google Guice
 ```java
@@ -291,7 +330,11 @@ OrderService orderService = new OrderService(
 );
 ```
 
+</div>
+
 ### Conditional Dependencies
+
+<div class="framework-comparison">
 
 #### Spring Boot with Profiles
 ```java
@@ -391,7 +434,11 @@ public class ApplicationFactory {
 }
 ```
 
+</div>
+
 ### Enterprise Java (Jakarta EE / Java EE)
+
+<div class="framework-comparison">
 
 #### CDI (Contexts and Dependency Injection)
 ```java
@@ -478,7 +525,11 @@ UserRepository repository = new UserRepository(entityManager);
 UserService service = new UserService(repository, logger, transactionManager);
 ```
 
+</div>
+
 ### Testing with Mocks
+
+<div class="framework-comparison">
 
 #### Dagger 2 with Testing
 ```java
@@ -544,7 +595,11 @@ public class UserServiceTest {
 }
 ```
 
+</div>
+
 ### Cloud-Native Framework
+
+<div class="framework-comparison">
 
 #### Quarkus (CDI with Build-time Optimization)
 ```java
@@ -647,7 +702,11 @@ public class Application {
 }
 ```
 
+</div>
+
 ---
+
+<div class="coffee-section">
 
 ## Support Vanilla DI Development
 
@@ -665,6 +724,8 @@ Developing the world's most lightweight DI framework is hard work! Help us maint
 - Support our team of 0 full-time developers ✅
 
 *Fun fact: 100% of donations go directly toward not adding features to Vanilla DI!*
+
+</div>
 
 ---
 
