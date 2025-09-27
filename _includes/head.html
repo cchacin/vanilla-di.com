@@ -3,18 +3,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+  <!-- SEO Tags -->
   {% seo %}
+
+  <!-- Open Graph and Twitter Card meta tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vanilla DI">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="{{ '/assets/images/vanilla-di-og.png' | absolute_url }}">
+  <meta property="og:image:alt" content="Vanilla DI - The ultimate lightweight Java dependency injection framework">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@{{ site.author | replace: ' ', '' | downcase }}">
+
+  <!-- Enhanced meta descriptions -->
+  {% if page.description %}
+    <meta name="description" content="{{ page.description | strip_html | normalize_whitespace | truncate: 160 }}">
+  {% else %}
+    <meta name="description" content="Vanilla DI: A satirical take on Java dependency injection. Compare Spring, Guice, CDI complexity vs pure constructor injection. Zero dependencies, zero magic, maximum simplicity.">
+  {% endif %}
+
+  <meta name="keywords" content="Java, Dependency Injection, Spring, Guice, CDI, Constructor Injection, Framework Comparison, Java Performance, Clean Code">
+  <meta name="author" content="{{ site.author }}">
+
+  <!-- Performance and Security -->
+  <link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style">
+  <link rel="preload" href="{{ '/assets/js/main.js' | relative_url }}" as="script">
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
 
-  <!-- Favicon -->
+  <!-- Favicon with multiple sizes -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
 
-  <!-- Preload fonts -->
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="//cdn.buymeacoffee.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author }}",
+      "url": "{{ site.author_url }}"
+    },
+    "sameAs": [
+      "{{ site.author_url }}"
+    ]
+  }
+  </script>
+
+  <!-- Theme color for mobile browsers -->
+  <meta name="theme-color" content="#3498db">
+  <meta name="msapplication-TileColor" content="#3498db">
 
   {% if jekyll.environment == 'production' and site.google_analytics %}
     {% include google-analytics.html %}

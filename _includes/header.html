@@ -1,22 +1,22 @@
-<header class="site-header">
+<header class="site-header" role="banner">
   <div class="container">
-    <nav class="main-nav">
-      <a href="/" class="site-title">
-        <span class="site-icon">🍦</span>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <a href="/" class="site-title" aria-label="Vanilla DI - Home">
+        <span class="site-icon" aria-hidden="true">🍦</span>
         <span class="site-name">Vanilla DI</span>
       </a>
 
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </button>
 
-      <div class="nav-links">
-        <a href="#performance" class="nav-link">Performance</a>
-        <a href="#examples" class="nav-link">Examples</a>
-        <a href="#getting-started" class="nav-link">Get Started</a>
-        <a href="{{ site.author_url }}" class="author-link" target="_blank" rel="noopener">
+      <div class="nav-links" id="nav-links" role="menubar">
+        <a href="#performance" class="nav-link" role="menuitem">Performance</a>
+        <a href="#examples" class="nav-link" role="menuitem">Examples</a>
+        <a href="#getting-started" class="nav-link" role="menuitem">Get Started</a>
+        <a href="{{ site.author_url }}" class="author-link" target="_blank" rel="noopener" role="menuitem" aria-label="Visit Carlos Chacin's website (opens in new tab)">
           by {{ site.author }}
         </a>
       </div>

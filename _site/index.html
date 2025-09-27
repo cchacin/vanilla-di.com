@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO Tags -->
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Vanilla DI - A fast, lightweight, cross-platform Java Dependency Injection framework | Vanilla DI</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Vanilla DI - A fast, lightweight, cross-platform Java Dependency Injection framework" />
+<meta name="author" content="Carlos Chacin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A fast, lightweight, cross-platform Java Dependency Injection framework" />
+<meta property="og:description" content="A fast, lightweight, cross-platform Java Dependency Injection framework" />
+<link rel="canonical" href="https://vanilla-di.com/" />
+<meta property="og:url" content="https://vanilla-di.com/" />
+<meta property="og:site_name" content="Vanilla DI" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Vanilla DI - A fast, lightweight, cross-platform Java Dependency Injection framework" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Carlos Chacin"},"description":"A fast, lightweight, cross-platform Java Dependency Injection framework","headline":"Vanilla DI - A fast, lightweight, cross-platform Java Dependency Injection framework","name":"Vanilla DI","url":"https://vanilla-di.com/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Open Graph and Twitter Card meta tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vanilla DI">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://vanilla-di.com/assets/images/vanilla-di-og.png">
+  <meta property="og:image:alt" content="Vanilla DI - The ultimate lightweight Java dependency injection framework">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@carloschacin">
+
+  <!-- Enhanced meta descriptions -->
+  
+    <meta name="description" content="Vanilla DI: A satirical take on Java dependency injection. Compare Spring, Guice, CDI complexity vs pure constructor injection. Zero dependencies, zero magic, maximum simplicity.">
+  
+
+  <meta name="keywords" content="Java, Dependency Injection, Spring, Guice, CDI, Constructor Injection, Framework Comparison, Java Performance, Clean Code">
+  <meta name="author" content="Carlos Chacin">
+
+  <!-- Performance and Security -->
+  <link rel="preload" href="/assets/css/main.css" as="style">
+  <link rel="preload" href="/assets/js/main.js" as="script">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="https://vanilla-di.com/">
+  <link rel="alternate" type="application/rss+xml" title="Vanilla DI" href="/feed.xml">
+
+  <!-- Favicon with multiple sizes -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍦</text></svg>">
+
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="//cdn.buymeacoffee.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Vanilla DI",
+    "description": "A fast, lightweight, cross-platform Java Dependency Injection framework",
+    "url": "https://vanilla-di.com",
+    "author": {
+      "@type": "Person",
+      "name": "Carlos Chacin",
+      "url": "https://carloschac.in"
+    },
+    "sameAs": [
+      "https://carloschac.in"
+    ]
+  }
+  </script>
+
+  <!-- Theme color for mobile browsers -->
+  <meta name="theme-color" content="#3498db">
+  <meta name="msapplication-TileColor" content="#3498db">
+
+  
+</head>
+  <body>
+    <header class="site-header" role="banner">
+  <div class="container">
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <a href="/" class="site-title" aria-label="Vanilla DI - Home">
+        <span class="site-icon" aria-hidden="true">🍦</span>
+        <span class="site-name">Vanilla DI</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <div class="nav-links" id="nav-links" role="menubar">
+        <a href="#performance" class="nav-link" role="menuitem">Performance</a>
+        <a href="#examples" class="nav-link" role="menuitem">Examples</a>
+        <a href="#getting-started" class="nav-link" role="menuitem">Get Started</a>
+        <a href="https://carloschac.in" class="author-link" target="_blank" rel="noopener" role="menuitem" aria-label="Visit Carlos Chacin's website (opens in new tab)">
+          by Carlos Chacin
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <main class="main-content">
+      <div class="container">
+  <article class="page-content">
+    <div class="hero-section">
+  <h1>🍦 Vanilla DI</h1>
+  <p class="hero-subtitle">A fast, lightweight, cross-platform Java Dependency Injection framework</p>
+</div>
+
+<h2 id="the-numbers-dont-lie">The numbers don’t lie!</h2>
+
+<p><strong>Vanilla DI</strong> is already used by more Java applications than Spring, Spring Boot, Guice, Dagger, CDI, and PicoContainer - <em>combined</em>.</p>
+
+<p>Vanilla DI has the most comprehensive support with 100% of all Java environments, and has perfect compatibility with all existing Java code.</p>
+
+<h2 id="ready-to-make-the-switch">Ready to make the switch?</h2>
+
+<p>Stop spending hours learning complex DI frameworks. Choose the superior Vanilla DI framework!</p>
+
+<p><strong>Final JAR size:</strong> 0 bytes uncompressed, 0 bytes compressed
+Your application will have Vanilla DI loaded into memory before it even requests dependencies.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>Add Vanilla DI to your project in seconds:</p>
+
+<h3 id="maven">Maven</h3>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.acme<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>vanilla-di<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+<h3 id="gradle">Gradle</h3>
+<div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">implementation</span> <span class="s1">'org.acme:vanilla-di:1.0.0'</span>
+</code></pre></div></div>
+
+<h3 id="going-to-production">Going to Production?</h3>
+
+<p>When you’re ready to deploy to production, simply remove the dependency from your <code class="language-plaintext highlighter-rouge">pom.xml</code> or <code class="language-plaintext highlighter-rouge">build.gradle</code>.</p>
+
+<p><strong>That’s it!</strong></p>
+
+<p>Vanilla DI is so lightweight and well-integrated with the JVM that removing the dependency actually <em>improves</em> performance. Your IDE and runtime already have everything they need.</p>
+
+<h3 id="advanced-configuration">Advanced Configuration</h3>
+
+<p>For enterprise deployments, you may want to configure Vanilla DI’s advanced features:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// This is literally all the configuration you need</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApplication</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Vanilla DI is automatically configured</span>
+        <span class="c1">// No XML files, no annotations, no magic</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Pro tip:</strong> The more dependencies you remove, the faster Vanilla DI becomes!</p>
+
+<h2 id="why-choose-vanilla-di">Why choose Vanilla DI?</h2>
+
+<div class="features-grid">
+  <div class="feature-card">
+    <h3 data-emoji="🚀">Blazing Fast</h3>
+    <p>Zero reflection overhead. Zero proxy creation. Zero annotation scanning. Just pure Java performance.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3 data-emoji="📦">Zero Dependencies</h3>
+    <p>No external JARs. No classpath pollution. No version conflicts. Just your code.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3 data-emoji="🎯">Explicit and Clear</h3>
+    <p>No magic. No hidden behavior. You can see exactly what's happening in your dependency graph.</p>
+  </div>
+
+  <div class="feature-card">
+    <h3 data-emoji="🔧">No Configuration</h3>
+    <p>No XML files. No annotations to learn. No framework-specific concepts. Just Java constructors.</p>
+  </div>
+</div>
+
+<h2 id="performance">Performance Comparison</h2>
+
+<p>Don’t just take our word for it! Here’s how <strong>Vanilla DI</strong> stacks up against other “popular” frameworks based on actual benchmark data:</p>
+
+<table class="performance-table">
+  <thead>
+    <tr>
+      <th>Framework</th>
+      <th>Startup Time*</th>
+      <th>Memory Usage**</th>
+      <th>JAR Size***</th>
+      <th>Reflection Calls</th>
+      <th>Magic Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="vanilla-row">
+      <td data-label="Framework"><strong>Vanilla DI</strong></td>
+      <td data-label="Startup Time"><strong>3ms</strong></td>
+      <td data-label="Memory Usage"><strong>~22MB base</strong></td>
+      <td data-label="JAR Size"><strong>0 bytes</strong></td>
+      <td data-label="Reflection Calls"><strong>0</strong></td>
+      <td data-label="Magic Level"><span class="magic-level"><strong>None</strong> ✅</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Dagger 2</td>
+      <td data-label="Startup Time">46ms</td>
+      <td data-label="Memory Usage">~25MB + app</td>
+      <td data-label="JAR Size">~1-3MB</td>
+      <td data-label="Reflection Calls">Zero****</td>
+      <td data-label="Magic Level"><span class="magic-level">Low 🃏</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Google Guice</td>
+      <td data-label="Startup Time">458ms</td>
+      <td data-label="Memory Usage">~30-40MB + app</td>
+      <td data-label="JAR Size">~2-5MB</td>
+      <td data-label="Reflection Calls">Hundreds</td>
+      <td data-label="Magic Level"><span class="magic-level">Medium 🎩</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Quarkus</td>
+      <td data-label="Startup Time">0.5-1.5 seconds</td>
+      <td data-label="Memory Usage">~180MB heap</td>
+      <td data-label="JAR Size">15-25MB JAR</td>
+      <td data-label="Reflection Calls">Minimal*****</td>
+      <td data-label="Magic Level"><span class="magic-level">Medium-Low 🎭</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Micronaut</td>
+      <td data-label="Startup Time">1-2 seconds</td>
+      <td data-label="Memory Usage">254MB heap</td>
+      <td data-label="JAR Size">12MB JAR</td>
+      <td data-label="Reflection Calls">Minimal</td>
+      <td data-label="Magic Level"><span class="magic-level">Medium 🎪</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Spring Framework</td>
+      <td data-label="Startup Time">7-13 seconds</td>
+      <td data-label="Memory Usage">305MB heap</td>
+      <td data-label="JAR Size">24MB+ JAR</td>
+      <td data-label="Reflection Calls">Thousands</td>
+      <td data-label="Magic Level"><span class="magic-level">High 🪄</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">Spring Boot</td>
+      <td data-label="Startup Time">3-7 seconds</td>
+      <td data-label="Memory Usage">305MB+ heap</td>
+      <td data-label="JAR Size">24-50MB JAR</td>
+      <td data-label="Reflection Calls">Thousands</td>
+      <td data-label="Magic Level"><span class="magic-level">Very High 🔮</span></td>
+    </tr>
+    <tr>
+      <td data-label="Framework">CDI/Jakarta EE</td>
+      <td data-label="Startup Time">10-20 seconds</td>
+      <td data-label="Memory Usage">400-600MB+</td>
+      <td data-label="JAR Size">50-200MB+</td>
+      <td data-label="Reflection Calls">Thousands</td>
+      <td data-label="Magic Level"><span class="magic-level">Extreme 🧙‍♂️</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="data-sources--disclaimers">Data Sources &amp; Disclaimers</h3>
+
+<p><em>*Startup times from <a href="https://github.com/greenlaw110/di-benchmark">DI Framework Benchmarks</a> and various 2024 performance studies</em></p>
+
+<p><em>**Memory usage includes heap allocation after startup for simple applications (Spring Boot data from official benchmarks)</em></p>
+
+<p><em>***JAR sizes for minimal applications with basic DI functionality</em></p>
+
+<p><em>****Dagger 2 uses compile-time generation, so runtime reflection is zero, but requires annotation processing</em></p>
+
+<p><em>*****Quarkus performs CDI processing at build time, significantly reducing runtime reflection compared to traditional CDI</em></p>
+
+<p><strong>Important Notes:</strong></p>
+<ul>
+  <li>Numbers vary significantly based on application complexity, dependencies, and JVM settings</li>
+  <li>Vanilla DI baseline includes minimal JVM overhead for object creation</li>
+  <li>Framework memory includes both heap and non-heap usage</li>
+  <li>Performance can be optimized through configuration and architectural choices</li>
+  <li>Real-world applications may see different results based on usage patterns</li>
+</ul>
+
+<h3 id="what-these-numbers-really-mean">What these numbers really mean:</h3>
+
+<ul>
+  <li><strong>Startup Time</strong>: How long you wait before your application actually starts doing work</li>
+  <li><strong>Memory Overhead</strong>: RAM consumed by the framework itself (not your business logic)</li>
+  <li><strong>JAR Size</strong>: Additional bloat in your deployment artifacts</li>
+  <li><strong>Reflection Calls</strong>: Runtime introspection that slows down your code</li>
+  <li><strong>Magic Level</strong>: How much invisible behavior happens behind your back</li>
+</ul>
+
+<h3 id="real-world-impact">Real-world Impact:</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Vanilla DI application startup (benchmarked at ~3ms for DI container creation)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ~3ms: Create your objects (actual measured time)</span>
+    <span class="nc">DatabaseConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DatabaseConfig</span><span class="o">(</span><span class="s">"jdbc:postgresql://localhost/mydb"</span><span class="o">);</span>
+    <span class="nc">UserRepository</span> <span class="n">repository</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UserRepository</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
+    <span class="nc">UserService</span> <span class="n">service</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UserService</span><span class="o">(</span><span class="n">repository</span><span class="o">);</span>
+
+    <span class="c1">// Additional time for server startup (not DI-related)</span>
+    <span class="n">startServer</span><span class="o">(</span><span class="n">service</span><span class="o">);</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Application ready!"</span><span class="o">);</span> <span class="c1">// &lt;- DI part is nearly instant</span>
+<span class="o">}</span>
+
+<span class="c1">// Spring Boot application startup (benchmarked at 3-7 seconds typical)</span>
+<span class="nd">@SpringBootApplication</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Based on actual Spring Boot benchmark measurements:</span>
+        <span class="c1">// 0-1000ms: JVM startup and class loading</span>
+        <span class="c1">// 1000-3000ms: Scanning classpath for components</span>
+        <span class="c1">// 3000-4000ms: Creating bean definitions and resolving dependencies</span>
+        <span class="c1">// 4000-5000ms: Initializing application context and proxies</span>
+        <span class="c1">// 5000-7000ms: Post-processors and auto-configuration</span>
+        <span class="nc">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">Application</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+        <span class="c1">// 7000ms+: Application ready (measured on simple apps)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Benchmark Context:</strong> These measurements come from controlled benchmarks on minimal applications. Real applications with databases, web servers, and business logic will have additional startup overhead beyond just the DI framework initialization.</p>
+
+<h2 id="examples">See how simple it is!</h2>
+
+<p>Here are some examples of common dependency injection tasks in <strong>Vanilla DI</strong> and other frameworks:</p>
+
+<section class="comparison-section" id="basic-service" aria-label="Framework comparison: Basic Service Injection">
+  <h3 class="comparison-title">Basic Service Injection</h3>
+
+  <div class="comparison-grid" role="group" aria-label="Code comparison between Spring Framework and Vanilla DI">
+    <!-- Framework Example -->
+    <article class="framework-example" role="region" aria-label="Spring Framework implementation example">
+      <div class="framework-header">
+        <h4 class="framework-name">Spring Framework</h4>
+        <div class="complexity-indicator" role="img" aria-label="Complexity score: 8 out of 10">
+          <span class="complexity-score complexity-8" aria-hidden="true">8</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Spring Framework code example">
+        <div class="code-header">
+          <span class="code-label">Spring Framework Implementation</span>
+          <button class="copy-button" data-clipboard-text="@Service
+public class UserService {
+    @Autowired
+    private UserRepository userRepository;
+
+    public User findUser(Long id) {
+        return userRepository.findById(id);
+    }
+}
+
+@Repository
+public class UserRepository {
+    @Autowired
+    private EntityManager entityManager;
+
+    public User findById(Long id) {
+        return entityManager.find(User.class, id);
+    }
+}
+
+@Configuration
+@ComponentScan
+@EnableJpaRepositories
+public class AppConfig {
+    // Complex configuration...
+}" aria-label="Copy Spring Framework code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Spring Framework"><code class="language-java">@Service
+public class UserService {
+    @Autowired
+    private UserRepository userRepository;
+
+    public User findUser(Long id) {
+        return userRepository.findById(id);
+    }
+}
+
+@Repository
+public class UserRepository {
+    @Autowired
+    private EntityManager entityManager;
+
+    public User findById(Long id) {
+        return entityManager.find(User.class, id);
+    }
+}
+
+@Configuration
+@ComponentScan
+@EnableJpaRepositories
+public class AppConfig {
+    // Complex configuration...
+}</code></pre>
+      </div>
+    </article>
+
+    <!-- Vanilla DI Example -->
+    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
+      <div class="framework-header vanilla">
+        <h4 class="framework-name">Vanilla DI</h4>
+        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
+          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Vanilla DI code example">
+        <div class="code-header vanilla">
+          <span class="code-label">Vanilla DI Implementation</span>
+          <button class="copy-button" data-clipboard-text="public class UserService {
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public User findUser(Long id) {
+        return userRepository.findById(id);
+    }
+}
+
+public class UserRepository {
+    private final EntityManager entityManager;
+
+    public UserRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    public User findById(Long id) {
+        return entityManager.find(User.class, id);
+    }
+}
+
+// In your main method or factory:
+EntityManager entityManager = createEntityManager();
+UserRepository repository = new UserRepository(entityManager);
+UserService service = new UserService(repository);" aria-label="Copy Vanilla DI code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public class UserService {
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public User findUser(Long id) {
+        return userRepository.findById(id);
+    }
+}
+
+public class UserRepository {
+    private final EntityManager entityManager;
+
+    public UserRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    public User findById(Long id) {
+        return entityManager.find(User.class, id);
+    }
+}
+
+// In your main method or factory:
+EntityManager entityManager = createEntityManager();
+UserRepository repository = new UserRepository(entityManager);
+UserService service = new UserService(repository);</code></pre>
+      </div>
+    </article>
+  </div>
+
+  
+  <div class="comparison-description" role="note" aria-label="Comparison explanation">
+    <p>Notice how Vanilla DI requires zero annotations, configuration classes, or magic autowiring. Just plain constructors and explicit dependencies.</p>
+  </div>
+  
+</section>
+
+<section class="comparison-section" id="complex-dependency" aria-label="Framework comparison: Complex Dependency Graph">
+  <h3 class="comparison-title">Complex Dependency Graph</h3>
+
+  <div class="comparison-grid" role="group" aria-label="Code comparison between Google Guice and Vanilla DI">
+    <!-- Framework Example -->
+    <article class="framework-example" role="region" aria-label="Google Guice implementation example">
+      <div class="framework-header">
+        <h4 class="framework-name">Google Guice</h4>
+        <div class="complexity-indicator" role="img" aria-label="Complexity score: 6 out of 10">
+          <span class="complexity-score complexity-6" aria-hidden="true">6</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Google Guice code example">
+        <div class="code-header">
+          <span class="code-label">Google Guice Implementation</span>
+          <button class="copy-button" data-clipboard-text="public class DatabaseModule extends AbstractModule {
+    @Override
+    protected void configure() {
+        bind(UserRepository.class).to(JpaUserRepository.class);
+        bind(OrderRepository.class).to(JpaOrderRepository.class);
+        bind(EmailService.class).to(SmtpEmailService.class);
+    }
+
+    @Provides
+    @Singleton
+    DataSource provideDataSource() {
+        // Complex datasource configuration
+    }
+}
+
+public class OrderService {
+    @Inject
+    private UserRepository userRepository;
+
+    @Inject
+    private OrderRepository orderRepository;
+
+    @Inject
+    private EmailService emailService;
+
+    public void processOrder(Order order) {
+        // Business logic
+    }
+}
+
+// Bootstrap
+Injector injector = Guice.createInjector(new DatabaseModule());
+OrderService orderService = injector.getInstance(OrderService.class);" aria-label="Copy Google Guice code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Google Guice"><code class="language-java">public class DatabaseModule extends AbstractModule {
+    @Override
+    protected void configure() {
+        bind(UserRepository.class).to(JpaUserRepository.class);
+        bind(OrderRepository.class).to(JpaOrderRepository.class);
+        bind(EmailService.class).to(SmtpEmailService.class);
+    }
+
+    @Provides
+    @Singleton
+    DataSource provideDataSource() {
+        // Complex datasource configuration
+    }
+}
+
+public class OrderService {
+    @Inject
+    private UserRepository userRepository;
+
+    @Inject
+    private OrderRepository orderRepository;
+
+    @Inject
+    private EmailService emailService;
+
+    public void processOrder(Order order) {
+        // Business logic
+    }
+}
+
+// Bootstrap
+Injector injector = Guice.createInjector(new DatabaseModule());
+OrderService orderService = injector.getInstance(OrderService.class);</code></pre>
+      </div>
+    </article>
+
+    <!-- Vanilla DI Example -->
+    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
+      <div class="framework-header vanilla">
+        <h4 class="framework-name">Vanilla DI</h4>
+        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
+          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Vanilla DI code example">
+        <div class="code-header vanilla">
+          <span class="code-label">Vanilla DI Implementation</span>
+          <button class="copy-button" data-clipboard-text="public class OrderService {
+    private final UserRepository userRepository;
+    private final OrderRepository orderRepository;
+    private final EmailService emailService;
+
+    public OrderService(UserRepository userRepository,
+                       OrderRepository orderRepository,
+                       EmailService emailService) {
+        this.userRepository = userRepository;
+        this.orderRepository = orderRepository;
+        this.emailService = emailService;
+    }
+
+    public void processOrder(Order order) {
+        // Business logic
+    }
+}
+
+// In your application factory:
+DataSource dataSource = createDataSource();
+UserRepository userRepository = new JpaUserRepository(dataSource);
+OrderRepository orderRepository = new JpaOrderRepository(dataSource);
+EmailService emailService = new SmtpEmailService();
+
+OrderService orderService = new OrderService(
+    userRepository,
+    orderRepository,
+    emailService
+);" aria-label="Copy Vanilla DI code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public class OrderService {
+    private final UserRepository userRepository;
+    private final OrderRepository orderRepository;
+    private final EmailService emailService;
+
+    public OrderService(UserRepository userRepository,
+                       OrderRepository orderRepository,
+                       EmailService emailService) {
+        this.userRepository = userRepository;
+        this.orderRepository = orderRepository;
+        this.emailService = emailService;
+    }
+
+    public void processOrder(Order order) {
+        // Business logic
+    }
+}
+
+// In your application factory:
+DataSource dataSource = createDataSource();
+UserRepository userRepository = new JpaUserRepository(dataSource);
+OrderRepository orderRepository = new JpaOrderRepository(dataSource);
+EmailService emailService = new SmtpEmailService();
+
+OrderService orderService = new OrderService(
+    userRepository,
+    orderRepository,
+    emailService
+);</code></pre>
+      </div>
+    </article>
+  </div>
+
+  
+  <div class="comparison-description" role="note" aria-label="Comparison explanation">
+    <p>No modules, no binding configuration, no annotations. Just clear constructor dependencies that any Java developer can understand instantly.</p>
+  </div>
+  
+</section>
+
+<section class="comparison-section" id="conditional-dependencies" aria-label="Framework comparison: Conditional Dependencies">
+  <h3 class="comparison-title">Conditional Dependencies</h3>
+
+  <div class="comparison-grid" role="group" aria-label="Code comparison between Spring Boot and Vanilla DI">
+    <!-- Framework Example -->
+    <article class="framework-example" role="region" aria-label="Spring Boot implementation example">
+      <div class="framework-header">
+        <h4 class="framework-name">Spring Boot</h4>
+        <div class="complexity-indicator" role="img" aria-label="Complexity score: 9 out of 10">
+          <span class="complexity-score complexity-9" aria-hidden="true">9</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Spring Boot code example">
+        <div class="code-header">
+          <span class="code-label">Spring Boot Implementation</span>
+          <button class="copy-button" data-clipboard-text="@Service
+@Profile(&quot;development&quot;)
+public class MockEmailService implements EmailService {
+    public void sendEmail(String to, String message) {
+        System.out.println(&quot;Mock email: &quot; + message);
+    }
+}
+
+@Service
+@Profile(&quot;production&quot;)
+public class SmtpEmailService implements EmailService {
+    @Value(&quot;${smtp.host}&quot;)
+    private String smtpHost;
+
+    @Value(&quot;${smtp.port}&quot;)
+    private int smtpPort;
+
+    public void sendEmail(String to, String message) {
+        // Real SMTP implementation
+    }
+}
+
+@RestController
+public class NotificationController {
+    @Autowired
+    private EmailService emailService; // Magic injection
+
+    @PostMapping(&quot;/notify&quot;)
+    public void notify(@RequestBody NotificationRequest request) {
+        emailService.sendEmail(request.getEmail(), request.getMessage());
+    }
+}
+
+# Plus separate property files for each environment" aria-label="Copy Spring Boot code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Spring Boot"><code class="language-java">@Service
+@Profile("development")
+public class MockEmailService implements EmailService {
+    public void sendEmail(String to, String message) {
+        System.out.println("Mock email: " + message);
+    }
+}
+
+@Service
+@Profile("production")
+public class SmtpEmailService implements EmailService {
+    @Value("${smtp.host}")
+    private String smtpHost;
+
+    @Value("${smtp.port}")
+    private int smtpPort;
+
+    public void sendEmail(String to, String message) {
+        // Real SMTP implementation
+    }
+}
+
+@RestController
+public class NotificationController {
+    @Autowired
+    private EmailService emailService; // Magic injection
+
+    @PostMapping("/notify")
+    public void notify(@RequestBody NotificationRequest request) {
+        emailService.sendEmail(request.getEmail(), request.getMessage());
+    }
+}
+
+# Plus separate property files for each environment</code></pre>
+      </div>
+    </article>
+
+    <!-- Vanilla DI Example -->
+    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
+      <div class="framework-header vanilla">
+        <h4 class="framework-name">Vanilla DI</h4>
+        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
+          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Vanilla DI code example">
+        <div class="code-header vanilla">
+          <span class="code-label">Vanilla DI Implementation</span>
+          <button class="copy-button" data-clipboard-text="public interface EmailService {
+    void sendEmail(String to, String message);
+}
+
+public class MockEmailService implements EmailService {
+    public void sendEmail(String to, String message) {
+        System.out.println(&quot;Mock email: &quot; + message);
+    }
+}
+
+public class SmtpEmailService implements EmailService {
+    private final String smtpHost;
+    private final int smtpPort;
+
+    public SmtpEmailService(String smtpHost, int smtpPort) {
+        this.smtpHost = smtpHost;
+        this.smtpPort = smtpPort;
+    }
+
+    public void sendEmail(String to, String message) {
+        // Real SMTP implementation
+    }
+}
+
+public class NotificationController {
+    private final EmailService emailService;
+
+    public NotificationController(EmailService emailService) {
+        this.emailService = emailService;
+    }
+
+    public void notify(NotificationRequest request) {
+        emailService.sendEmail(request.getEmail(), request.getMessage());
+    }
+}
+
+// In your application factory:
+public class ApplicationFactory {
+    public static NotificationController createController(boolean isDevelopment) {
+        EmailService emailService = isDevelopment ?
+            new MockEmailService() :
+            new SmtpEmailService(&quot;smtp.company.com&quot;, 587);
+
+        return new NotificationController(emailService);
+    }
+}" aria-label="Copy Vanilla DI code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public interface EmailService {
+    void sendEmail(String to, String message);
+}
+
+public class MockEmailService implements EmailService {
+    public void sendEmail(String to, String message) {
+        System.out.println("Mock email: " + message);
+    }
+}
+
+public class SmtpEmailService implements EmailService {
+    private final String smtpHost;
+    private final int smtpPort;
+
+    public SmtpEmailService(String smtpHost, int smtpPort) {
+        this.smtpHost = smtpHost;
+        this.smtpPort = smtpPort;
+    }
+
+    public void sendEmail(String to, String message) {
+        // Real SMTP implementation
+    }
+}
+
+public class NotificationController {
+    private final EmailService emailService;
+
+    public NotificationController(EmailService emailService) {
+        this.emailService = emailService;
+    }
+
+    public void notify(NotificationRequest request) {
+        emailService.sendEmail(request.getEmail(), request.getMessage());
+    }
+}
+
+// In your application factory:
+public class ApplicationFactory {
+    public static NotificationController createController(boolean isDevelopment) {
+        EmailService emailService = isDevelopment ?
+            new MockEmailService() :
+            new SmtpEmailService("smtp.company.com", 587);
+
+        return new NotificationController(emailService);
+    }
+}</code></pre>
+      </div>
+    </article>
+  </div>
+
+  
+  <div class="comparison-description" role="note" aria-label="Comparison explanation">
+    <p>No profiles, no property injection, no environment-specific configuration files. Just a simple boolean and clean constructor injection.</p>
+  </div>
+  
+</section>
+
+<section class="comparison-section" id="testing-mocks" aria-label="Framework comparison: Testing with Mocks">
+  <h3 class="comparison-title">Testing with Mocks</h3>
+
+  <div class="comparison-grid" role="group" aria-label="Code comparison between Dagger 2 and Vanilla DI">
+    <!-- Framework Example -->
+    <article class="framework-example" role="region" aria-label="Dagger 2 implementation example">
+      <div class="framework-header">
+        <h4 class="framework-name">Dagger 2</h4>
+        <div class="complexity-indicator" role="img" aria-label="Complexity score: 4 out of 10">
+          <span class="complexity-score complexity-4" aria-hidden="true">4</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Dagger 2 code example">
+        <div class="code-header">
+          <span class="code-label">Dagger 2 Implementation</span>
+          <button class="copy-button" data-clipboard-text="@Component(modules = {DatabaseModule.class})
+@Singleton
+public interface ApplicationComponent {
+    UserService userService();
+}
+
+@Module
+public class TestDatabaseModule {
+    @Provides
+    @Singleton
+    UserRepository provideUserRepository() {
+        return Mockito.mock(UserRepository.class);
+    }
+}
+
+public class UserServiceTest {
+    @Test
+    public void testFindUser() {
+        // Complex test component setup
+        ApplicationComponent component = DaggerApplicationComponent.builder()
+            .databaseModule(new TestDatabaseModule())
+            .build();
+
+        UserService service = component.userService();
+        // Test logic...
+    }
+}" aria-label="Copy Dagger 2 code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Dagger 2"><code class="language-java">@Component(modules = {DatabaseModule.class})
+@Singleton
+public interface ApplicationComponent {
+    UserService userService();
+}
+
+@Module
+public class TestDatabaseModule {
+    @Provides
+    @Singleton
+    UserRepository provideUserRepository() {
+        return Mockito.mock(UserRepository.class);
+    }
+}
+
+public class UserServiceTest {
+    @Test
+    public void testFindUser() {
+        // Complex test component setup
+        ApplicationComponent component = DaggerApplicationComponent.builder()
+            .databaseModule(new TestDatabaseModule())
+            .build();
+
+        UserService service = component.userService();
+        // Test logic...
+    }
+}</code></pre>
+      </div>
+    </article>
+
+    <!-- Vanilla DI Example -->
+    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
+      <div class="framework-header vanilla">
+        <h4 class="framework-name">Vanilla DI</h4>
+        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
+          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Vanilla DI code example">
+        <div class="code-header vanilla">
+          <span class="code-label">Vanilla DI Implementation</span>
+          <button class="copy-button" data-clipboard-text="public class UserServiceTest {
+    @Test
+    public void testFindUser() {
+        // Create test dependencies
+        UserRepository mockRepository = Mockito.mock(UserRepository.class);
+        User expectedUser = new User(1L, &quot;John&quot;);
+
+        when(mockRepository.findById(1L)).thenReturn(expectedUser);
+
+        // Create service with test dependencies
+        UserService service = new UserService(mockRepository);
+
+        // Test
+        User result = service.findUser(1L);
+
+        // Verify
+        assertEquals(expectedUser, result);
+        verify(mockRepository).findById(1L);
+    }
+}" aria-label="Copy Vanilla DI code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public class UserServiceTest {
+    @Test
+    public void testFindUser() {
+        // Create test dependencies
+        UserRepository mockRepository = Mockito.mock(UserRepository.class);
+        User expectedUser = new User(1L, "John");
+
+        when(mockRepository.findById(1L)).thenReturn(expectedUser);
+
+        // Create service with test dependencies
+        UserService service = new UserService(mockRepository);
+
+        // Test
+        User result = service.findUser(1L);
+
+        // Verify
+        assertEquals(expectedUser, result);
+        verify(mockRepository).findById(1L);
+    }
+}</code></pre>
+      </div>
+    </article>
+  </div>
+
+  
+  <div class="comparison-description" role="note" aria-label="Comparison explanation">
+    <p>Testing becomes trivial when you just pass the mock in the constructor. No test modules, no component builders, no framework ceremony.</p>
+  </div>
+  
+</section>
+
+<section class="comparison-section" id="micronaut-example" aria-label="Framework comparison: Cloud-Native Framework Comparison">
+  <h3 class="comparison-title">Cloud-Native Framework Comparison</h3>
+
+  <div class="comparison-grid" role="group" aria-label="Code comparison between Micronaut and Vanilla DI">
+    <!-- Framework Example -->
+    <article class="framework-example" role="region" aria-label="Micronaut implementation example">
+      <div class="framework-header">
+        <h4 class="framework-name">Micronaut</h4>
+        <div class="complexity-indicator" role="img" aria-label="Complexity score: 5 out of 10">
+          <span class="complexity-score complexity-5" aria-hidden="true">5</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Micronaut code example">
+        <div class="code-header">
+          <span class="code-label">Micronaut Implementation</span>
+          <button class="copy-button" data-clipboard-text="@Singleton
+public class UserService {
+    private final UserRepository userRepository;
+    private final NotificationService notificationService;
+
+    public UserService(UserRepository userRepository,
+                       NotificationService notificationService) {
+        this.userRepository = userRepository;
+        this.notificationService = notificationService;
+    }
+
+    @Executable
+    public CompletableFuture&lt;User&gt; createUserAsync(CreateUserRequest request) {
+        return CompletableFuture.supplyAsync(() -&gt; {
+            User user = new User(request.getName(), request.getEmail());
+            User savedUser = userRepository.save(user);
+            notificationService.sendWelcomeEmail(savedUser);
+            return savedUser;
+        });
+    }
+}
+
+@Singleton
+@Requires(property = &quot;app.notifications.enabled&quot;, value = &quot;true&quot;)
+public class EmailNotificationService implements NotificationService {
+    @Value(&quot;${smtp.host}&quot;)
+    private String smtpHost;
+
+    @PostConstruct
+    void init() {
+        // Initialize SMTP connection
+    }
+}
+
+// Application startup
+@Application
+public class MicronautApp {
+    public static void main(String[] args) {
+        // Framework handles dependency injection
+        Micronaut.run(MicronautApp.class, args);
+    }
+}" aria-label="Copy Micronaut code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Micronaut"><code class="language-java">@Singleton
+public class UserService {
+    private final UserRepository userRepository;
+    private final NotificationService notificationService;
+
+    public UserService(UserRepository userRepository,
+                       NotificationService notificationService) {
+        this.userRepository = userRepository;
+        this.notificationService = notificationService;
+    }
+
+    @Executable
+    public CompletableFuture<User> createUserAsync(CreateUserRequest request) {
+        return CompletableFuture.supplyAsync(() -&gt; {
+            User user = new User(request.getName(), request.getEmail());
+            User savedUser = userRepository.save(user);
+            notificationService.sendWelcomeEmail(savedUser);
+            return savedUser;
+        });
+    }
+}
+
+@Singleton
+@Requires(property = "app.notifications.enabled", value = "true")
+public class EmailNotificationService implements NotificationService {
+    @Value("${smtp.host}")
+    private String smtpHost;
+
+    @PostConstruct
+    void init() {
+        // Initialize SMTP connection
+    }
+}
+
+// Application startup
+@Application
+public class MicronautApp {
+    public static void main(String[] args) {
+        // Framework handles dependency injection
+        Micronaut.run(MicronautApp.class, args);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+
+    <!-- Vanilla DI Example -->
+    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
+      <div class="framework-header vanilla">
+        <h4 class="framework-name">Vanilla DI</h4>
+        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
+          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Vanilla DI code example">
+        <div class="code-header vanilla">
+          <span class="code-label">Vanilla DI Implementation</span>
+          <button class="copy-button" data-clipboard-text="public class UserService {
+    private final UserRepository userRepository;
+    private final NotificationService notificationService;
+    private final ExecutorService executorService;
+
+    public UserService(UserRepository userRepository,
+                       NotificationService notificationService,
+                       ExecutorService executorService) {
+        this.userRepository = userRepository;
+        this.notificationService = notificationService;
+        this.executorService = executorService;
+    }
+
+    public CompletableFuture&lt;User&gt; createUserAsync(CreateUserRequest request) {
+        return CompletableFuture.supplyAsync(() -&gt; {
+            User user = new User(request.getName(), request.getEmail());
+            User savedUser = userRepository.save(user);
+            notificationService.sendWelcomeEmail(savedUser);
+            return savedUser;
+        }, executorService);
+    }
+}
+
+public class EmailNotificationService implements NotificationService {
+    private final String smtpHost;
+
+    public EmailNotificationService(String smtpHost) {
+        this.smtpHost = smtpHost;
+        // Initialize SMTP connection in constructor
+    }
+}
+
+// Application startup
+public class Application {
+    public static void main(String[] args) {
+        // Explicit dependency creation and injection
+        String smtpHost = System.getProperty(&quot;smtp.host&quot;, &quot;localhost&quot;);
+        boolean notificationsEnabled = Boolean.parseBoolean(
+            System.getProperty(&quot;app.notifications.enabled&quot;, &quot;true&quot;));
+
+        NotificationService notificationService = notificationsEnabled ?
+            new EmailNotificationService(smtpHost) :
+            new NoOpNotificationService();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        UserRepository userRepository = new JpaUserRepository();
+
+        UserService userService = new UserService(
+            userRepository,
+            notificationService,
+            executorService);
+
+        startServer(userService);
+    }
+}" aria-label="Copy Vanilla DI code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public class UserService {
+    private final UserRepository userRepository;
+    private final NotificationService notificationService;
+    private final ExecutorService executorService;
+
+    public UserService(UserRepository userRepository,
+                       NotificationService notificationService,
+                       ExecutorService executorService) {
+        this.userRepository = userRepository;
+        this.notificationService = notificationService;
+        this.executorService = executorService;
+    }
+
+    public CompletableFuture<User> createUserAsync(CreateUserRequest request) {
+        return CompletableFuture.supplyAsync(() -&gt; {
+            User user = new User(request.getName(), request.getEmail());
+            User savedUser = userRepository.save(user);
+            notificationService.sendWelcomeEmail(savedUser);
+            return savedUser;
+        }, executorService);
+    }
+}
+
+public class EmailNotificationService implements NotificationService {
+    private final String smtpHost;
+
+    public EmailNotificationService(String smtpHost) {
+        this.smtpHost = smtpHost;
+        // Initialize SMTP connection in constructor
+    }
+}
+
+// Application startup
+public class Application {
+    public static void main(String[] args) {
+        // Explicit dependency creation and injection
+        String smtpHost = System.getProperty("smtp.host", "localhost");
+        boolean notificationsEnabled = Boolean.parseBoolean(
+            System.getProperty("app.notifications.enabled", "true"));
+
+        NotificationService notificationService = notificationsEnabled ?
+            new EmailNotificationService(smtpHost) :
+            new NoOpNotificationService();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        UserRepository userRepository = new JpaUserRepository();
+
+        UserService userService = new UserService(
+            userRepository,
+            notificationService,
+            executorService);
+
+        startServer(userService);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+
+  
+  <div class="comparison-description" role="note" aria-label="Comparison explanation">
+    <p>No annotations, no magic property injection, no framework lifecycle hooks. Just clear constructor dependencies and explicit configuration logic.</p>
+  </div>
+  
+&lt;/section&gt;
+
+<section class="comparison-section" id="enterprise-example" aria-label="Framework comparison: Enterprise Java Stack">
+  <h3 class="comparison-title">Enterprise Java Stack</h3>
+
+  <div class="comparison-grid" role="group" aria-label="Code comparison between Jakarta EE + CDI and Vanilla DI">
+    <!-- Framework Example -->
+    <article class="framework-example" role="region" aria-label="Jakarta EE + CDI implementation example">
+      <div class="framework-header">
+        <h4 class="framework-name">Jakarta EE + CDI</h4>
+        <div class="complexity-indicator" role="img" aria-label="Complexity score: 10 out of 10">
+          <span class="complexity-score complexity-10" aria-hidden="true">10</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Jakarta EE + CDI code example">
+        <div class="code-header">
+          <span class="code-label">Jakarta EE + CDI Implementation</span>
+          <button class="copy-button" data-clipboard-text="@Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
+public class OrderProcessingService {
+    @EJB
+    private InventoryService inventoryService;
+
+    @EJB
+    private PaymentService paymentService;
+
+    @Inject
+    private AuditLogger auditLogger;
+
+    @Resource
+    private UserTransaction userTransaction;
+
+    @PersistenceContext(unitName = &quot;ordersPU&quot;)
+    private EntityManager entityManager;
+
+    @Resource(lookup = &quot;jms/OrderQueue&quot;)
+    private Queue orderQueue;
+
+    @Resource(lookup = &quot;jms/QueueConnectionFactory&quot;)
+    private QueueConnectionFactory queueConnectionFactory;
+
+    @Asynchronous
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+    public Future&lt;OrderResult&gt; processOrderAsync(
+            @Valid OrderRequest request,
+            @NotNull SecurityContext securityContext) {
+
+        try {
+            // Framework manages transactions, security, validation
+            Order order = new Order(request);
+            entityManager.persist(order);
+
+            inventoryService.reserveItems(order.getItems());
+            PaymentResult payment = paymentService.processPayment(order);
+
+            sendOrderNotification(order);
+            auditLogger.logOrderProcessed(order, securityContext.getUserPrincipal());
+
+            return new AsyncResult&lt;&gt;(new OrderResult(order, payment));
+        } catch (Exception e) {
+            // Container handles rollback
+            throw new EJBException(&quot;Order processing failed&quot;, e);
+        }
+    }
+
+    private void sendOrderNotification(Order order) throws JMSException {
+        try (QueueConnection connection = queueConnectionFactory.createQueueConnection()) {
+            QueueSession session = connection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
+            QueueSender sender = session.createSender(orderQueue);
+
+            ObjectMessage message = session.createObjectMessage(new OrderNotification(order));
+            sender.send(message);
+        }
+    }
+}
+
+// Plus: persistence.xml, ejb-jar.xml, web.xml configuration
+// Plus: Application server deployment descriptors
+// Plus: JNDI resource configuration" aria-label="Copy Jakarta EE + CDI code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Jakarta EE + CDI"><code class="language-java">@Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
+public class OrderProcessingService {
+    @EJB
+    private InventoryService inventoryService;
+
+    @EJB
+    private PaymentService paymentService;
+
+    @Inject
+    private AuditLogger auditLogger;
+
+    @Resource
+    private UserTransaction userTransaction;
+
+    @PersistenceContext(unitName = "ordersPU")
+    private EntityManager entityManager;
+
+    @Resource(lookup = "jms/OrderQueue")
+    private Queue orderQueue;
+
+    @Resource(lookup = "jms/QueueConnectionFactory")
+    private QueueConnectionFactory queueConnectionFactory;
+
+    @Asynchronous
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+    public Future<OrderResult> processOrderAsync(
+            @Valid OrderRequest request,
+            @NotNull SecurityContext securityContext) {
+
+        try {
+            // Framework manages transactions, security, validation
+            Order order = new Order(request);
+            entityManager.persist(order);
+
+            inventoryService.reserveItems(order.getItems());
+            PaymentResult payment = paymentService.processPayment(order);
+
+            sendOrderNotification(order);
+            auditLogger.logOrderProcessed(order, securityContext.getUserPrincipal());
+
+            return new AsyncResult&lt;&gt;(new OrderResult(order, payment));
+        } catch (Exception e) {
+            // Container handles rollback
+            throw new EJBException("Order processing failed", e);
+        }
+    }
+
+    private void sendOrderNotification(Order order) throws JMSException {
+        try (QueueConnection connection = queueConnectionFactory.createQueueConnection()) {
+            QueueSession session = connection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
+            QueueSender sender = session.createSender(orderQueue);
+
+            ObjectMessage message = session.createObjectMessage(new OrderNotification(order));
+            sender.send(message);
+        }
+    }
+}
+
+// Plus: persistence.xml, ejb-jar.xml, web.xml configuration
+// Plus: Application server deployment descriptors
+// Plus: JNDI resource configuration&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+
+    <!-- Vanilla DI Example -->
+    <article class="vanilla-example" role="region" aria-label="Vanilla DI implementation example">
+      <div class="framework-header vanilla">
+        <h4 class="framework-name">Vanilla DI</h4>
+        <div class="complexity-indicator vanilla" role="img" aria-label="Complexity score: 0 out of 10 - No complexity">
+          <span class="complexity-score complexity-0" aria-hidden="true">0</span>
+          <span class="complexity-label">Complexity</span>
+        </div>
+      </div>
+
+      <div class="code-container" role="region" aria-label="Vanilla DI code example">
+        <div class="code-header vanilla">
+          <span class="code-label">Vanilla DI Implementation</span>
+          <button class="copy-button" data-clipboard-text="public class OrderProcessingService {
+    private final InventoryService inventoryService;
+    private final PaymentService paymentService;
+    private final AuditLogger auditLogger;
+    private final TransactionManager transactionManager;
+    private final EntityManager entityManager;
+    private final MessageProducer messageProducer;
+    private final ExecutorService executorService;
+
+    public OrderProcessingService(
+            InventoryService inventoryService,
+            PaymentService paymentService,
+            AuditLogger auditLogger,
+            TransactionManager transactionManager,
+            EntityManager entityManager,
+            MessageProducer messageProducer,
+            ExecutorService executorService) {
+        this.inventoryService = inventoryService;
+        this.paymentService = paymentService;
+        this.auditLogger = auditLogger;
+        this.transactionManager = transactionManager;
+        this.entityManager = entityManager;
+        this.messageProducer = messageProducer;
+        this.executorService = executorService;
+    }
+
+    public CompletableFuture&lt;OrderResult&gt; processOrderAsync(
+            OrderRequest request,
+            User currentUser) {
+
+        return CompletableFuture.supplyAsync(() -&gt; {
+            return transactionManager.executeInTransaction(() -&gt; {
+                // Validate request manually (or use bean validation)
+                validateOrderRequest(request);
+
+                Order order = new Order(request);
+                entityManager.persist(order);
+
+                inventoryService.reserveItems(order.getItems());
+                PaymentResult payment = paymentService.processPayment(order);
+
+                messageProducer.sendOrderNotification(new OrderNotification(order));
+                auditLogger.logOrderProcessed(order, currentUser);
+
+                return new OrderResult(order, payment);
+            });
+        }, executorService);
+    }
+
+    private void validateOrderRequest(OrderRequest request) {
+        if (request == null || request.getItems().isEmpty()) {
+            throw new IllegalArgumentException(&quot;Invalid order request&quot;);
+        }
+    }
+}
+
+// In your application factory:
+OrderProcessingService orderService = new OrderProcessingService(
+    new DatabaseInventoryService(dataSource),
+    new StripePaymentService(stripeApiKey),
+    new DatabaseAuditLogger(dataSource),
+    new JpaTransactionManager(entityManager),
+    entityManager,
+    new JmsMessageProducer(connectionFactory, orderQueue),
+    Executors.newFixedThreadPool(20)
+);" aria-label="Copy Vanilla DI code to clipboard">
+            <span class="copy-icon" aria-hidden="true">📋</span>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre role="img" aria-label="Code sample for Vanilla DI"><code class="language-java">public class OrderProcessingService {
+    private final InventoryService inventoryService;
+    private final PaymentService paymentService;
+    private final AuditLogger auditLogger;
+    private final TransactionManager transactionManager;
+    private final EntityManager entityManager;
+    private final MessageProducer messageProducer;
+    private final ExecutorService executorService;
+
+    public OrderProcessingService(
+            InventoryService inventoryService,
+            PaymentService paymentService,
+            AuditLogger auditLogger,
+            TransactionManager transactionManager,
+            EntityManager entityManager,
+            MessageProducer messageProducer,
+            ExecutorService executorService) {
+        this.inventoryService = inventoryService;
+        this.paymentService = paymentService;
+        this.auditLogger = auditLogger;
+        this.transactionManager = transactionManager;
+        this.entityManager = entityManager;
+        this.messageProducer = messageProducer;
+        this.executorService = executorService;
+    }
+
+    public CompletableFuture<OrderResult> processOrderAsync(
+            OrderRequest request,
+            User currentUser) {
+
+        return CompletableFuture.supplyAsync(() -&gt; {
+            return transactionManager.executeInTransaction(() -&gt; {
+                // Validate request manually (or use bean validation)
+                validateOrderRequest(request);
+
+                Order order = new Order(request);
+                entityManager.persist(order);
+
+                inventoryService.reserveItems(order.getItems());
+                PaymentResult payment = paymentService.processPayment(order);
+
+                messageProducer.sendOrderNotification(new OrderNotification(order));
+                auditLogger.logOrderProcessed(order, currentUser);
+
+                return new OrderResult(order, payment);
+            });
+        }, executorService);
+    }
+
+    private void validateOrderRequest(OrderRequest request) {
+        if (request == null || request.getItems().isEmpty()) {
+            throw new IllegalArgumentException("Invalid order request");
+        }
+    }
+}
+
+// In your application factory:
+OrderProcessingService orderService = new OrderProcessingService(
+    new DatabaseInventoryService(dataSource),
+    new StripePaymentService(stripeApiKey),
+    new DatabaseAuditLogger(dataSource),
+    new JpaTransactionManager(entityManager),
+    entityManager,
+    new JmsMessageProducer(connectionFactory, orderQueue),
+    Executors.newFixedThreadPool(20)
+);&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+
+  
+  <div class="comparison-description" role="note" aria-label="Comparison explanation">
+    <p>No application server required, no deployment descriptors, no JNDI lookups, no magic annotations. Just explicit dependencies and clear business logic that any Java developer can understand and test.</p>
+  </div>
+  
+&lt;/section&gt;
+
+---
+
+<div class="support-section">
+  <h2>Support Vanilla DI Development</h2>
+
+  <p>Developing the world's most lightweight DI framework is hard work! Help us maintain our 0-byte codebase and continue delivering blazing-fast performance improvements.</p>
+
+  <a href="https://www.buymeacoffee.com/cchacin" target="_blank" class="support-button">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" />
+  </a>
+
+  <p><strong>Your contribution helps us:</strong></p>
+  <ul class="support-list">
+    <li>Keep the framework dependency-free</li>
+    <li>Maintain zero compilation overhead</li>
+    <li>Continue delivering sub-millisecond startup times</li>
+    <li>Fund our extensive "no-documentation" documentation</li>
+    <li>Support our team of 0 full-time developers</li>
+  </ul>
+
+  <p class="support-note">Fun fact: 100% of donations go directly toward not adding features to Vanilla DI!</p>
+</div>
+
+The **Vanilla DI** team maintains every line of code in the framework and works hard each day to make sure it stays simple and intuitive.
+
+Made with ❤️ for Java developers who appreciate simplicity.
+
+*Inspired by the excellent [Vanilla JS](http://vanilla-js.com)*
+</OrderResult></code></pre></div></article></OrderResult></code></pre></div></article></div></section></User></code></pre></div></article></User></code></pre></div></article></div></section>
+
+  </article>
+</div>
+    </main>
+
+    <footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-main">
+        <p class="footer-tagline">
+          The <strong>Vanilla DI</strong> team maintains every line of code in the framework and works hard each day to make sure it stays simple and intuitive.
+        </p>
+        <p class="footer-love">
+          Made with ❤️ for Java developers who appreciate simplicity.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://carloschac.in" target="_blank" rel="noopener" class="footer-author">
+          Visit Carlos Chacin's website
+        </a>
+        <p class="footer-inspiration">
+          <em>Inspired by the excellent <a href="http://vanilla-js.com" target="_blank" rel="noopener">Vanilla JS</a></em>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

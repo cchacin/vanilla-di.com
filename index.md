@@ -509,6 +509,247 @@ public class UserServiceTest {
    description="Testing becomes trivial when you just pass the mock in the constructor. No test modules, no component builders, no framework ceremony."
 %}
 
+{% include framework-comparison.html
+   id="micronaut-example"
+   title="Cloud-Native Framework Comparison"
+   framework_name="Micronaut"
+   complexity="5"
+   code="@Singleton
+public class UserService {
+    private final UserRepository userRepository;
+    private final NotificationService notificationService;
+
+    public UserService(UserRepository userRepository,
+                       NotificationService notificationService) {
+        this.userRepository = userRepository;
+        this.notificationService = notificationService;
+    }
+
+    @Executable
+    public CompletableFuture<User> createUserAsync(CreateUserRequest request) {
+        return CompletableFuture.supplyAsync(() -> {
+            User user = new User(request.getName(), request.getEmail());
+            User savedUser = userRepository.save(user);
+            notificationService.sendWelcomeEmail(savedUser);
+            return savedUser;
+        });
+    }
+}
+
+@Singleton
+@Requires(property = \"app.notifications.enabled\", value = \"true\")
+public class EmailNotificationService implements NotificationService {
+    @Value(\"${smtp.host}\")
+    private String smtpHost;
+
+    @PostConstruct
+    void init() {
+        // Initialize SMTP connection
+    }
+}
+
+// Application startup
+@Application
+public class MicronautApp {
+    public static void main(String[] args) {
+        // Framework handles dependency injection
+        Micronaut.run(MicronautApp.class, args);
+    }
+}"
+   vanilla_code="public class UserService {
+    private final UserRepository userRepository;
+    private final NotificationService notificationService;
+    private final ExecutorService executorService;
+
+    public UserService(UserRepository userRepository,
+                       NotificationService notificationService,
+                       ExecutorService executorService) {
+        this.userRepository = userRepository;
+        this.notificationService = notificationService;
+        this.executorService = executorService;
+    }
+
+    public CompletableFuture<User> createUserAsync(CreateUserRequest request) {
+        return CompletableFuture.supplyAsync(() -> {
+            User user = new User(request.getName(), request.getEmail());
+            User savedUser = userRepository.save(user);
+            notificationService.sendWelcomeEmail(savedUser);
+            return savedUser;
+        }, executorService);
+    }
+}
+
+public class EmailNotificationService implements NotificationService {
+    private final String smtpHost;
+
+    public EmailNotificationService(String smtpHost) {
+        this.smtpHost = smtpHost;
+        // Initialize SMTP connection in constructor
+    }
+}
+
+// Application startup
+public class Application {
+    public static void main(String[] args) {
+        // Explicit dependency creation and injection
+        String smtpHost = System.getProperty(\"smtp.host\", \"localhost\");
+        boolean notificationsEnabled = Boolean.parseBoolean(
+            System.getProperty(\"app.notifications.enabled\", \"true\"));
+
+        NotificationService notificationService = notificationsEnabled ?
+            new EmailNotificationService(smtpHost) :
+            new NoOpNotificationService();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        UserRepository userRepository = new JpaUserRepository();
+
+        UserService userService = new UserService(
+            userRepository,
+            notificationService,
+            executorService);
+
+        startServer(userService);
+    }
+}"
+   description="No annotations, no magic property injection, no framework lifecycle hooks. Just clear constructor dependencies and explicit configuration logic."
+%}
+
+{% include framework-comparison.html
+   id="enterprise-example"
+   title="Enterprise Java Stack"
+   framework_name="Jakarta EE + CDI"
+   complexity="10"
+   code="@Stateless
+@TransactionManagement(TransactionManagementType.CONTAINER)
+public class OrderProcessingService {
+    @EJB
+    private InventoryService inventoryService;
+
+    @EJB
+    private PaymentService paymentService;
+
+    @Inject
+    private AuditLogger auditLogger;
+
+    @Resource
+    private UserTransaction userTransaction;
+
+    @PersistenceContext(unitName = \"ordersPU\")
+    private EntityManager entityManager;
+
+    @Resource(lookup = \"jms/OrderQueue\")
+    private Queue orderQueue;
+
+    @Resource(lookup = \"jms/QueueConnectionFactory\")
+    private QueueConnectionFactory queueConnectionFactory;
+
+    @Asynchronous
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+    public Future<OrderResult> processOrderAsync(
+            @Valid OrderRequest request,
+            @NotNull SecurityContext securityContext) {
+
+        try {
+            // Framework manages transactions, security, validation
+            Order order = new Order(request);
+            entityManager.persist(order);
+
+            inventoryService.reserveItems(order.getItems());
+            PaymentResult payment = paymentService.processPayment(order);
+
+            sendOrderNotification(order);
+            auditLogger.logOrderProcessed(order, securityContext.getUserPrincipal());
+
+            return new AsyncResult<>(new OrderResult(order, payment));
+        } catch (Exception e) {
+            // Container handles rollback
+            throw new EJBException(\"Order processing failed\", e);
+        }
+    }
+
+    private void sendOrderNotification(Order order) throws JMSException {
+        try (QueueConnection connection = queueConnectionFactory.createQueueConnection()) {
+            QueueSession session = connection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
+            QueueSender sender = session.createSender(orderQueue);
+
+            ObjectMessage message = session.createObjectMessage(new OrderNotification(order));
+            sender.send(message);
+        }
+    }
+}
+
+// Plus: persistence.xml, ejb-jar.xml, web.xml configuration
+// Plus: Application server deployment descriptors
+// Plus: JNDI resource configuration"
+   vanilla_code="public class OrderProcessingService {
+    private final InventoryService inventoryService;
+    private final PaymentService paymentService;
+    private final AuditLogger auditLogger;
+    private final TransactionManager transactionManager;
+    private final EntityManager entityManager;
+    private final MessageProducer messageProducer;
+    private final ExecutorService executorService;
+
+    public OrderProcessingService(
+            InventoryService inventoryService,
+            PaymentService paymentService,
+            AuditLogger auditLogger,
+            TransactionManager transactionManager,
+            EntityManager entityManager,
+            MessageProducer messageProducer,
+            ExecutorService executorService) {
+        this.inventoryService = inventoryService;
+        this.paymentService = paymentService;
+        this.auditLogger = auditLogger;
+        this.transactionManager = transactionManager;
+        this.entityManager = entityManager;
+        this.messageProducer = messageProducer;
+        this.executorService = executorService;
+    }
+
+    public CompletableFuture<OrderResult> processOrderAsync(
+            OrderRequest request,
+            User currentUser) {
+
+        return CompletableFuture.supplyAsync(() -> {
+            return transactionManager.executeInTransaction(() -> {
+                // Validate request manually (or use bean validation)
+                validateOrderRequest(request);
+
+                Order order = new Order(request);
+                entityManager.persist(order);
+
+                inventoryService.reserveItems(order.getItems());
+                PaymentResult payment = paymentService.processPayment(order);
+
+                messageProducer.sendOrderNotification(new OrderNotification(order));
+                auditLogger.logOrderProcessed(order, currentUser);
+
+                return new OrderResult(order, payment);
+            });
+        }, executorService);
+    }
+
+    private void validateOrderRequest(OrderRequest request) {
+        if (request == null || request.getItems().isEmpty()) {
+            throw new IllegalArgumentException(\"Invalid order request\");
+        }
+    }
+}
+
+// In your application factory:
+OrderProcessingService orderService = new OrderProcessingService(
+    new DatabaseInventoryService(dataSource),
+    new StripePaymentService(stripeApiKey),
+    new DatabaseAuditLogger(dataSource),
+    new JpaTransactionManager(entityManager),
+    entityManager,
+    new JmsMessageProducer(connectionFactory, orderQueue),
+    Executors.newFixedThreadPool(20)
+);"
+   description="No application server required, no deployment descriptors, no JNDI lookups, no magic annotations. Just explicit dependencies and clear business logic that any Java developer can understand and test."
+%}
+
 ---
 
 <div class="support-section">
