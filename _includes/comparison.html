@@ -1,0 +1,68 @@
+{% comment %}
+Enhanced comparison include that processes markdown files
+Usage: {% include comparison.html file="basic-service" %}
+{% endcomment %}
+
+{% assign comparison_file = '_comparisons/' | append: include.file | append: '.md' %}
+{% assign comparison_content = site.static_files | where: "path", comparison_file | first %}
+
+{% comment %} Read the comparison markdown file {% endcomment %}
+{% capture comparison_raw %}{% include_relative {{ comparison_file }} %}{% endcapture %}
+
+{% comment %} Parse frontmatter and content {% endcomment %}
+{% assign comparison_parts = comparison_raw | split: '---' %}
+{% assign frontmatter_raw = comparison_parts[1] %}
+{% assign content_raw = comparison_parts[2] %}
+
+{% comment %} Extract frontmatter variables {% endcomment %}
+{% assign frontmatter_lines = frontmatter_raw | strip | split: '
+' %}
+{% for line in frontmatter_lines %}
+  {% assign parts = line | split: ': ' %}
+  {% assign key = parts[0] | strip %}
+  {% assign value = parts[1] | strip | remove: '"' %}
+
+  {% if key == 'title' %}
+    {% assign comparison_title = value %}
+  {% elsif key == 'framework_name' %}
+    {% assign framework_name = value %}
+  {% elsif key == 'complexity' %}
+    {% assign complexity = value %}
+  {% elsif key == 'description' %}
+    {% assign description = value %}
+  {% endif %}
+{% endfor %}
+
+{% comment %} Split content into Framework and Vanilla sections {% endcomment %}
+{% assign content_sections = content_raw | split: '## Vanilla DI Code' %}
+{% assign framework_section = content_sections[0] | replace: '## Framework Code', '' | strip %}
+{% assign vanilla_section = content_sections[1] | strip %}
+
+
+<h3>{{ comparison_title }}</h3>
+
+<div class="comparison-grid">
+  <!-- Framework Example -->
+  <div class="code-example framework-example">
+    <div class="example-header">
+      <h4>{{ framework_name }}</h4>
+      <span class="complexity-badge">Complexity: {{ complexity }}/10</span>
+    </div>
+    <div class="code-block">
+      {{ framework_section | markdownify }}
+    </div>
+  </div>
+
+  <!-- Vanilla DI Example -->
+  <div class="code-example vanilla-example">
+    <div class="example-header">
+      <h4>Vanilla DI</h4>
+      <span class="complexity-badge vanilla">Complexity: 0/10</span>
+    </div>
+    <div class="code-block">
+      {{ vanilla_section | markdownify }}
+    </div>
+  </div>
+</div>
+
+<p class="comparison-note">{{ description }}</p>
