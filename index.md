@@ -56,8 +56,8 @@ For enterprise deployments requiring maximum sophistication:
 
 ```java
 // Behold: the complete Vanilla DI configuration
-public class MyApplication {
-  public static void main(String[] args) {
+class MyApplication {
+  void main() {
     // Configuration complete
     // No XML, no YAML, no annotations, no tears
   }
@@ -204,7 +204,8 @@ Don't just take our word for it! Here's how **Vanilla DI** completely dominates 
 
 ```java
 // Vanilla DI application startup (benchmarked at ~3ms for DI container creation)
-public static void main(String[] args) {
+class Application {
+  void main() {
   // ~3ms: Create your objects (actual measured time)
   var config = new DatabaseConfig("jdbc:postgresql://localhost/mydb");
   var repository = new UserRepository(config);
@@ -212,15 +213,15 @@ public static void main(String[] args) {
 
   // Additional time for server startup (not DI-related)
   startServer(service);
-  System.out.println("Application ready!"); // <- DI part is nearly instant
+  IO.println("Application ready!"); // <- DI part is nearly instant
 }
 ```
 
 ```java
 // Spring Boot application startup (benchmarked at 3-7 seconds typical)
 @SpringBootApplication
-public class Application {
-  public static void main(String[] args) {
+class Application {
+  void main() {
     // Based on actual Spring Boot benchmark measurements:
     // 0-1000ms: JVM startup and class loading
     // 1000-3000ms: Scanning classpath for components

@@ -45,7 +45,7 @@ class EmailNotificationService implements NotificationService {
 // Application startup
 @Application
 class MicronautApp {
-  static void main(String[] args) {
+  void main() {
     // Framework handles dependency injection
     Micronaut.run(MicronautApp.class, args);
   }
@@ -89,7 +89,7 @@ class EmailNotificationService implements NotificationService {
 
 // Application startup
 class Application {
-  static void main(String[] args) {
+  void main() {
     // Explicit dependency creation and injection
     var smtpHost = System.getProperty("smtp.host", "localhost");
     var notificationsEnabled = Boolean.parseBoolean(
