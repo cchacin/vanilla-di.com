@@ -1,31 +1,31 @@
-/* CSS Variables - Design system colors and values */
+/* CSS Variables - Catppuccin color schemes */
 
 :root {
-  // Color palette inspired by carloschac.in minimal aesthetic
-  --text-primary: #2c3e50;
-  --text-secondary: #7f8c8d;
-  --accent-color: #3498db;
-  --accent-hover: #2980b9;
-  --success-color: #27ae60;
-  --warning-color: #f39c12;
-  --danger-color: #e74c3c;
+  // Catppuccin Latte (Light theme) - https://github.com/catppuccin/catppuccin
+  --text-primary: #4c4f69;    // ctp-text
+  --text-secondary: #6c6f85;  // ctp-subtext1
+  --accent-color: #1e66f5;    // ctp-blue
+  --accent-hover: #04a5e5;    // ctp-sky
+  --success-color: #40a02b;   // ctp-green
+  --warning-color: #df8e1d;   // ctp-yellow
+  --danger-color: #d20f39;    // ctp-red
 
   // Background colors
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-tertiary: #ecf0f1;
+  --bg-primary: #eff1f5;      // ctp-base
+  --bg-secondary: #e6e9ef;    // ctp-mantle
+  --bg-tertiary: #dce0e8;     // ctp-crust
 
   // Border colors
-  --border-color: #e1e8ed;
-  --border-light: #f1f3f4;
+  --border-color: #bcc0cc;    // ctp-surface2
+  --border-light: #ccd0da;    // ctp-surface1
 
   // Code highlighting
-  --code-bg: #f8f9fa;
-  --code-text: #2c3e50;
-  --code-comment: #7f8c8d;
-  --code-keyword: #8e44ad;
-  --code-string: #27ae60;
-  --code-number: #e67e22;
+  --code-bg: #e6e9ef;         // ctp-mantle
+  --code-text: #4c4f69;       // ctp-text
+  --code-comment: #6c6f85;    // ctp-subtext1
+  --code-keyword: #8839ef;    // ctp-mauve
+  --code-string: #40a02b;     // ctp-green
+  --code-number: #fe640b;     // ctp-peach
 
   // Shadows
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -58,59 +58,70 @@
   --transition-slow: 0.3s ease;
 }
 
-// Dark mode support - automatic system preference
+// Dark mode support - automatic system preference (Catppuccin Macchiato)
 @media (prefers-color-scheme: dark) {
   :root:not(.theme-light):not(.theme-dark) {
-    --text-primary: #ecf0f1;
-    --text-secondary: #bdc3c7;
-    --bg-primary: #2c3e50;
-    --bg-secondary: #34495e;
-    --bg-tertiary: #3c5470;
-    --border-color: #4a6741;
-    --code-bg: #34495e;
-    --code-text: #ecf0f1;
+    --text-primary: #cad3f5;    // ctp-text
+    --text-secondary: #b8c0e0;  // ctp-subtext1
+    --accent-color: #8aadf4;    // ctp-blue
+    --accent-hover: #91d7e3;    // ctp-sky
+    --success-color: #a6da95;   // ctp-green
+    --warning-color: #eed49f;   // ctp-yellow
+    --danger-color: #ed8796;    // ctp-red
+    --bg-primary: #24273a;      // ctp-base
+    --bg-secondary: #1e2030;    // ctp-mantle
+    --bg-tertiary: #181926;     // ctp-crust
+    --border-color: #5b6078;    // ctp-surface2
+    --border-light: #494d64;    // ctp-surface1
+    --code-bg: #1e2030;         // ctp-mantle
+    --code-text: #cad3f5;       // ctp-text
+    --code-comment: #b8c0e0;    // ctp-subtext1
+    --code-keyword: #c6a0f6;    // ctp-mauve
+    --code-string: #a6da95;     // ctp-green
+    --code-number: #f5a97f;     // ctp-peach
   }
 }
 
-// Manual theme overrides
+// Manual theme overrides - Catppuccin Latte
 .theme-light {
-  --text-primary: #2c3e50 !important;
-  --text-secondary: #7f8c8d !important;
-  --accent-color: #3498db !important;
-  --accent-hover: #2980b9 !important;
-  --success-color: #27ae60 !important;
-  --warning-color: #f39c12 !important;
-  --danger-color: #e74c3c !important;
-  --bg-primary: #ffffff !important;
-  --bg-secondary: #f8f9fa !important;
-  --bg-tertiary: #ecf0f1 !important;
-  --border-color: #e1e8ed !important;
-  --border-light: #f1f3f4 !important;
-  --code-bg: #f8f9fa !important;
-  --code-text: #2c3e50 !important;
-  --code-comment: #7f8c8d !important;
-  --code-keyword: #8e44ad !important;
-  --code-string: #27ae60 !important;
-  --code-number: #e67e22 !important;
+  --text-primary: #4c4f69 !important;    // ctp-text
+  --text-secondary: #6c6f85 !important;  // ctp-subtext1
+  --accent-color: #1e66f5 !important;    // ctp-blue
+  --accent-hover: #04a5e5 !important;    // ctp-sky
+  --success-color: #40a02b !important;   // ctp-green
+  --warning-color: #df8e1d !important;   // ctp-yellow
+  --danger-color: #d20f39 !important;    // ctp-red
+  --bg-primary: #eff1f5 !important;      // ctp-base
+  --bg-secondary: #e6e9ef !important;    // ctp-mantle
+  --bg-tertiary: #dce0e8 !important;     // ctp-crust
+  --border-color: #bcc0cc !important;    // ctp-surface2
+  --border-light: #ccd0da !important;    // ctp-surface1
+  --code-bg: #e6e9ef !important;         // ctp-mantle
+  --code-text: #4c4f69 !important;       // ctp-text
+  --code-comment: #6c6f85 !important;    // ctp-subtext1
+  --code-keyword: #8839ef !important;    // ctp-mauve
+  --code-string: #40a02b !important;     // ctp-green
+  --code-number: #fe640b !important;     // ctp-peach
 }
 
+// Manual theme overrides - Catppuccin Macchiato
 .theme-dark {
-  --text-primary: #ecf0f1 !important;
-  --text-secondary: #bdc3c7 !important;
-  --accent-color: #3498db !important;
-  --accent-hover: #2980b9 !important;
-  --success-color: #27ae60 !important;
-  --warning-color: #f39c12 !important;
-  --danger-color: #e74c3c !important;
-  --bg-primary: #2c3e50 !important;
-  --bg-secondary: #34495e !important;
-  --bg-tertiary: #3c5470 !important;
-  --border-color: #4a6741 !important;
-  --border-light: #4a6741 !important;
-  --code-bg: #34495e !important;
-  --code-text: #ecf0f1 !important;
-  --code-comment: #bdc3c7 !important;
-  --code-keyword: #9b59b6 !important;
-  --code-string: #2ecc71 !important;
-  --code-number: #f39c12 !important;
+  --text-primary: #cad3f5 !important;    // ctp-text
+  --text-secondary: #b8c0e0 !important;  // ctp-subtext1
+  --accent-color: #8aadf4 !important;    // ctp-blue
+  --accent-hover: #91d7e3 !important;    // ctp-sky
+  --success-color: #a6da95 !important;   // ctp-green
+  --warning-color: #eed49f !important;   // ctp-yellow
+  --danger-color: #ed8796 !important;    // ctp-red
+  --bg-primary: #24273a !important;      // ctp-base
+  --bg-secondary: #1e2030 !important;    // ctp-mantle
+  --bg-tertiary: #181926 !important;     // ctp-crust
+  --border-color: #5b6078 !important;    // ctp-surface2
+  --border-light: #494d64 !important;    // ctp-surface1
+  --code-bg: #1e2030 !important;         // ctp-mantle
+  --code-text: #cad3f5 !important;       // ctp-text
+  --code-comment: #b8c0e0 !important;    // ctp-subtext1
+  --code-keyword: #c6a0f6 !important;    // ctp-mauve
+  --code-string: #a6da95 !important;     // ctp-green
+  --code-number: #f5a97f !important;     // ctp-peach
 }
