@@ -1,6 +1,105 @@
 // Main JavaScript for Vanilla DI site
 document.addEventListener('DOMContentLoaded', function() {
 
+  // Theme switcher functionality
+  const themeSwitcher = document.getElementById('theme-switcher');
+  const themeIcon = document.querySelector('.theme-icon');
+  const themeLabel = document.querySelector('.sr-only');
+
+  // Theme configuration
+  const themes = {
+    light: { icon: '☀️', label: 'Light', class: 'theme-light' },
+    dark: { icon: '🌙', label: 'Dark', class: 'theme-dark' },
+    auto: { icon: '💻', label: 'Auto', class: '' }
+  };
+
+  // Get current theme from localStorage or default to auto
+  function getCurrentTheme() {
+    return localStorage.getItem('theme') || 'auto';
+  }
+
+  // Apply theme to document
+  function applyTheme(themeName) {
+    const theme = themes[themeName];
+    if (!theme) return;
+
+    // Remove all theme classes
+    document.documentElement.classList.remove('theme-light', 'theme-dark');
+
+    // Add current theme class if not auto
+    if (theme.class) {
+      document.documentElement.classList.add(theme.class);
+    }
+
+    // Update button appearance
+    if (themeIcon) themeIcon.textContent = theme.icon;
+    if (themeLabel) themeLabel.textContent = `Current theme: ${theme.label}`;
+    if (themeSwitcher) themeSwitcher.setAttribute('aria-label', `Switch theme (currently ${theme.label})`);
+
+    // Store preference
+    localStorage.setItem('theme', themeName);
+
+    // Announce change to screen readers
+    announceThemeChange(theme.label);
+  }
+
+  // Announce theme change for accessibility
+  function announceThemeChange(themeName) {
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.className = 'sr-only';
+    announcement.textContent = `Theme changed to ${themeName}`;
+    document.body.appendChild(announcement);
+
+    // Remove announcement after screen reader processes it
+    setTimeout(() => {
+      document.body.removeChild(announcement);
+    }, 1000);
+  }
+
+  // Cycle to next theme
+  function cycleTheme() {
+    const currentTheme = getCurrentTheme();
+    const themeOrder = ['light', 'dark', 'auto'];
+    const currentIndex = themeOrder.indexOf(currentTheme);
+    const nextIndex = (currentIndex + 1) % themeOrder.length;
+    const nextTheme = themeOrder[nextIndex];
+
+    applyTheme(nextTheme);
+  }
+
+  // Initialize theme on page load
+  applyTheme(getCurrentTheme());
+
+  // Listen for system theme changes when in auto mode
+  if (window.matchMedia) {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', function() {
+      // Only respond to system changes if we're in auto mode
+      if (getCurrentTheme() === 'auto') {
+        // Force a re-application of auto theme to pick up system changes
+        applyTheme('auto');
+      }
+    });
+  }
+
+  // Theme switcher click handler
+  if (themeSwitcher) {
+    themeSwitcher.addEventListener('click', function(e) {
+      e.preventDefault();
+      cycleTheme();
+    });
+
+    // Keyboard accessibility
+    themeSwitcher.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        cycleTheme();
+      }
+    });
+  }
+
   // Mobile navigation toggle with accessibility
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');

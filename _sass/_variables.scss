@@ -58,9 +58,9 @@
   --transition-slow: 0.3s ease;
 }
 
-// Dark mode support (for future enhancement)
+// Dark mode support - automatic system preference
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.theme-light):not(.theme-dark) {
     --text-primary: #ecf0f1;
     --text-secondary: #bdc3c7;
     --bg-primary: #2c3e50;
@@ -70,4 +70,47 @@
     --code-bg: #34495e;
     --code-text: #ecf0f1;
   }
+}
+
+// Manual theme overrides
+.theme-light {
+  --text-primary: #2c3e50 !important;
+  --text-secondary: #7f8c8d !important;
+  --accent-color: #3498db !important;
+  --accent-hover: #2980b9 !important;
+  --success-color: #27ae60 !important;
+  --warning-color: #f39c12 !important;
+  --danger-color: #e74c3c !important;
+  --bg-primary: #ffffff !important;
+  --bg-secondary: #f8f9fa !important;
+  --bg-tertiary: #ecf0f1 !important;
+  --border-color: #e1e8ed !important;
+  --border-light: #f1f3f4 !important;
+  --code-bg: #f8f9fa !important;
+  --code-text: #2c3e50 !important;
+  --code-comment: #7f8c8d !important;
+  --code-keyword: #8e44ad !important;
+  --code-string: #27ae60 !important;
+  --code-number: #e67e22 !important;
+}
+
+.theme-dark {
+  --text-primary: #ecf0f1 !important;
+  --text-secondary: #bdc3c7 !important;
+  --accent-color: #3498db !important;
+  --accent-hover: #2980b9 !important;
+  --success-color: #27ae60 !important;
+  --warning-color: #f39c12 !important;
+  --danger-color: #e74c3c !important;
+  --bg-primary: #2c3e50 !important;
+  --bg-secondary: #34495e !important;
+  --bg-tertiary: #3c5470 !important;
+  --border-color: #4a6741 !important;
+  --border-light: #4a6741 !important;
+  --code-bg: #34495e !important;
+  --code-text: #ecf0f1 !important;
+  --code-comment: #bdc3c7 !important;
+  --code-keyword: #9b59b6 !important;
+  --code-string: #2ecc71 !important;
+  --code-number: #f39c12 !important;
 }
