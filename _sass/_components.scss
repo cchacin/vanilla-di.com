@@ -4,7 +4,7 @@
 .comparison-note {
   margin: 2rem 0;
   padding: 1rem;
-  background-color: rgba(52, 152, 219, 0.1);
+  background-color: rgba(var(--accent-color-rgb), 0.1);
   border-radius: 0.5rem;
   border-left: 4px solid var(--accent-color);
   color: var(--text-secondary);
@@ -52,12 +52,18 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
+  &.framework-example {
+    .example-header {
+      background: linear-gradient(135deg, var(--warning-color) 0%, var(--danger-color) 100%);
+    }
+  }
+
   &.vanilla-example {
     border-color: var(--success-color);
-    background: linear-gradient(135deg, rgba(39, 174, 96, 0.05) 0%, var(--bg-primary) 100%);
+    background: linear-gradient(135deg, rgba(var(--success-color-rgb), 0.05) 0%, var(--bg-primary) 100%);
 
     .example-header {
-      background: linear-gradient(135deg, var(--success-color) 0%, #2ecc71 100%);
+      background: linear-gradient(135deg, var(--success-color) 0%, var(--success-color) 100%);
     }
 
     .complexity-badge {
@@ -72,7 +78,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, var(--warning-color) 0%, #e67e22 100%);
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
   color: white;
 
   h4 {
@@ -151,6 +157,14 @@
     padding: 1rem;
     text-align: left;
     border-bottom: 2px solid var(--border-color);
+
+    // First column header (Framework) gets special styling
+    &:first-child {
+      background: linear-gradient(135deg, var(--success-color) 0%, rgba(var(--success-color-rgb), 0.8) 100%);
+      color: white;
+      font-weight: 700;
+      border-bottom-color: var(--success-color);
+    }
   }
 
   td {
@@ -160,7 +174,7 @@
   }
 
   .vanilla-row {
-    background: linear-gradient(135deg, rgba(39, 174, 96, 0.1) 0%, rgba(39, 174, 96, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(var(--success-color-rgb), 0.1) 0%, rgba(var(--success-color-rgb), 0.05) 100%);
     font-weight: 600;
 
     td {
@@ -189,13 +203,13 @@
 .hero-section {
   text-align: center;
   padding: 4rem 0;
-  background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(var(--accent-color-rgb), 0.1) 0%, rgba(var(--accent-hover-rgb), 0.1) 100%);
   border-radius: 1rem;
   margin-bottom: 3rem;
 
   h1 {
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--accent-color) 0%, #9b59b6 100%);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -244,7 +258,7 @@
 
 // Coffee/support section
 .support-section {
-  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
   color: white;
   padding: 3rem 2rem;
   border-radius: 1rem;

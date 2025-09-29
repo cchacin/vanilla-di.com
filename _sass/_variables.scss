@@ -56,6 +56,13 @@
   --transition-fast: 0.15s ease;
   --transition-normal: 0.2s ease;
   --transition-slow: 0.3s ease;
+
+  // RGB values for rgba() functions
+  --accent-color-rgb: 30, 102, 245;      // ctp-blue
+  --accent-hover-rgb: 4, 165, 229;       // ctp-sky
+  --success-color-rgb: 64, 160, 43;      // ctp-green
+  --warning-color-rgb: 223, 142, 29;     // ctp-yellow
+  --danger-color-rgb: 210, 15, 57;       // ctp-red
 }
 
 // Dark mode support - automatic system preference (Catppuccin Macchiato)
@@ -79,6 +86,13 @@
     --code-keyword: #c6a0f6;    // ctp-mauve
     --code-string: #a6da95;     // ctp-green
     --code-number: #f5a97f;     // ctp-peach
+
+    // RGB values for rgba() functions (Macchiato)
+    --accent-color-rgb: 138, 173, 244;    // ctp-blue
+    --accent-hover-rgb: 145, 215, 227;    // ctp-sky
+    --success-color-rgb: 166, 218, 149;   // ctp-green
+    --warning-color-rgb: 238, 212, 159;   // ctp-yellow
+    --danger-color-rgb: 237, 135, 150;    // ctp-red
   }
 }
 
@@ -102,6 +116,13 @@
   --code-keyword: #8839ef !important;    // ctp-mauve
   --code-string: #40a02b !important;     // ctp-green
   --code-number: #fe640b !important;     // ctp-peach
+
+  // RGB values for rgba() functions (Latte)
+  --accent-color-rgb: 30, 102, 245 !important;      // ctp-blue
+  --accent-hover-rgb: 4, 165, 229 !important;       // ctp-sky
+  --success-color-rgb: 64, 160, 43 !important;      // ctp-green
+  --warning-color-rgb: 223, 142, 29 !important;     // ctp-yellow
+  --danger-color-rgb: 210, 15, 57 !important;       // ctp-red
 }
 
 // Manual theme overrides - Catppuccin Macchiato
@@ -124,4 +145,11 @@
   --code-keyword: #c6a0f6 !important;    // ctp-mauve
   --code-string: #a6da95 !important;     // ctp-green
   --code-number: #f5a97f !important;     // ctp-peach
+
+  // RGB values for rgba() functions (Macchiato)
+  --accent-color-rgb: 138, 173, 244 !important;    // ctp-blue
+  --accent-hover-rgb: 145, 215, 227 !important;    // ctp-sky
+  --success-color-rgb: 166, 218, 149 !important;   // ctp-green
+  --warning-color-rgb: 238, 212, 159 !important;   // ctp-yellow
+  --danger-color-rgb: 237, 135, 150 !important;    // ctp-red
 }
