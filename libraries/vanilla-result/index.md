@@ -43,6 +43,10 @@ All you wanted was to **treat errors as data**. But instead, you got:
 <div id="result-code-block" style="position: relative;" markdown="1">
 
 ```java
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 public sealed interface Result<T, E> permits Result.Success, Result.Failure {
 
     record Success<T, E>(T value) implements Result<T, E> {}
