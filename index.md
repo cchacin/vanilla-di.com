@@ -22,6 +22,13 @@ Stop spending weeks mastering arcane framework configuration. Join the millions 
 - **Memory footprint:** Negative bytes (actually *reduces* your application size)
 - **Learning curve:** Approximately 3 minutes (including coffee break)
 
+## Explore Vanilla Libraries {#libraries}
+
+Ready for more vanilla goodness? Check out our **[Vanilla Libraries](/libraries/)** - copy/paste ready Java code snippets that replace entire frameworks:
+
+- **[Vanilla Result](/libraries/vanilla-result/)** - Treat errors as values (157 lines vs 50,000 lines of Vavr)
+- More coming soon...
+
 ## Getting Started {#getting-started}
 
 Add Vanilla DI to your project in seconds:

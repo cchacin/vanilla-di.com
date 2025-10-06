@@ -54,7 +54,7 @@
 
   &.framework-example {
     .example-header {
-      background: linear-gradient(135deg, var(--warning-color) 0%, var(--danger-color) 100%);
+      background: var(--header-warning-bg);
     }
   }
 
@@ -63,7 +63,7 @@
     background: linear-gradient(135deg, rgba(var(--success-color-rgb), 0.05) 0%, var(--bg-primary) 100%);
 
     .example-header {
-      background: linear-gradient(135deg, var(--success-color) 0%, var(--success-color) 100%);
+      background: var(--header-success-bg);
     }
 
     .complexity-badge {
@@ -78,13 +78,28 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+  background: var(--header-accent-bg);
   color: white;
 
   h4 {
     margin: 0;
     font-size: 1.125rem;
     font-weight: 600;
+  }
+}
+
+// Dark mode text color adjustment for headers
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light) {
+    .example-header {
+      color: var(--bg-primary);
+    }
+  }
+}
+
+.theme-dark {
+  .example-header {
+    color: var(--bg-primary) !important;
   }
 }
 

@@ -27,6 +27,12 @@
   --code-string: #40a02b;     // ctp-green
   --code-number: #fe640b;     // ctp-peach
 
+  // Header backgrounds with good contrast
+  --header-accent-bg: #1e66f5;      // ctp-blue (dark enough for white text)
+  --header-warning-bg: #df8e1d;     // ctp-yellow (dark enough for white text)
+  --header-danger-bg: #d20f39;      // ctp-red (dark enough for white text)
+  --header-success-bg: #40a02b;     // ctp-green (dark enough for white text)
+
   // Shadows
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -87,6 +93,12 @@
     --code-string: #a6da95;     // ctp-green
     --code-number: #f5a97f;     // ctp-peach
 
+    // Header backgrounds with good contrast for dark mode
+    --header-accent-bg: #8aadf4;      // ctp-blue (light enough for dark text)
+    --header-warning-bg: #eed49f;     // ctp-yellow (light enough for dark text)
+    --header-danger-bg: #ed8796;      // ctp-red (light enough for dark text)
+    --header-success-bg: #a6da95;     // ctp-green (light enough for dark text)
+
     // RGB values for rgba() functions (Macchiato)
     --accent-color-rgb: 138, 173, 244;    // ctp-blue
     --accent-hover-rgb: 145, 215, 227;    // ctp-sky
@@ -117,6 +129,12 @@
   --code-string: #40a02b !important;     // ctp-green
   --code-number: #fe640b !important;     // ctp-peach
 
+  // Header backgrounds with good contrast
+  --header-accent-bg: #1e66f5 !important;      // ctp-blue (dark enough for white text)
+  --header-warning-bg: #df8e1d !important;     // ctp-yellow (dark enough for white text)
+  --header-danger-bg: #d20f39 !important;      // ctp-red (dark enough for white text)
+  --header-success-bg: #40a02b !important;     // ctp-green (dark enough for white text)
+
   // RGB values for rgba() functions (Latte)
   --accent-color-rgb: 30, 102, 245 !important;      // ctp-blue
   --accent-hover-rgb: 4, 165, 229 !important;       // ctp-sky
@@ -145,6 +163,12 @@
   --code-keyword: #c6a0f6 !important;    // ctp-mauve
   --code-string: #a6da95 !important;     // ctp-green
   --code-number: #f5a97f !important;     // ctp-peach
+
+  // Header backgrounds with good contrast for dark mode
+  --header-accent-bg: #8aadf4 !important;      // ctp-blue (light enough for dark text)
+  --header-warning-bg: #eed49f !important;     // ctp-yellow (light enough for dark text)
+  --header-danger-bg: #ed8796 !important;      // ctp-red (light enough for dark text)
+  --header-success-bg: #a6da95 !important;     // ctp-green (light enough for dark text)
 
   // RGB values for rgba() functions (Macchiato)
   --accent-color-rgb: 138, 173, 244 !important;    // ctp-blue

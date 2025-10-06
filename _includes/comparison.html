@@ -3,11 +3,11 @@ Enhanced comparison include that processes markdown files
 Usage: {% include comparison.html file="basic-service" %}
 {% endcomment %}
 
-{% assign comparison_file = '_comparisons/' | append: include.file | append: '.md' %}
-{% assign comparison_content = site.static_files | where: "path", comparison_file | first %}
+{% assign comparison_file = include.file | append: '.md' %}
 
-{% comment %} Read the comparison markdown file {% endcomment %}
-{% capture comparison_raw %}{% include_relative {{ comparison_file }} %}{% endcapture %}
+{% comment %} Read the comparison markdown file from _comparisons directory {% endcomment %}
+{% capture comparison_path %}_comparisons/{{ comparison_file }}{% endcapture %}
+{% capture comparison_raw %}{% include {{ comparison_path }} %}{% endcapture %}
 
 {% comment %} Parse frontmatter and content {% endcomment %}
 {% assign comparison_parts = comparison_raw | split: '---' %}

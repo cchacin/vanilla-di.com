@@ -477,6 +477,46 @@ document.addEventListener('DOMContentLoaded', function() {
     score.setAttribute('data-tooltip', tooltip);
   });
 
+  // Add copy button to Result code block on vanilla-result page
+  const resultCodeBlock = document.getElementById('result-code-block');
+  if (resultCodeBlock) {
+    const code = resultCodeBlock.querySelector('code');
+    if (code) {
+      const copyButton = document.createElement('button');
+      copyButton.className = 'copy-btn';
+      copyButton.textContent = '📋 Copy';
+      copyButton.style.cssText = 'position: absolute; top: 10px; right: 10px; background: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.25rem; cursor: pointer; font-size: 0.875rem; z-index: 10; transition: all 0.2s ease;';
+      copyButton.setAttribute('data-clipboard-text', code.textContent);
+
+      // Add click handler for copy functionality
+      copyButton.addEventListener('click', async function() {
+        const textToCopy = this.getAttribute('data-clipboard-text');
+        const originalText = this.textContent;
+
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          this.textContent = '✅ Copied!';
+          setTimeout(() => {
+            this.textContent = originalText;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+
+      // Add hover effect
+      copyButton.addEventListener('mouseenter', () => {
+        copyButton.style.transform = 'scale(1.05)';
+      });
+      copyButton.addEventListener('mouseleave', () => {
+        copyButton.style.transform = 'scale(1)';
+      });
+
+      resultCodeBlock.style.position = 'relative';
+      resultCodeBlock.appendChild(copyButton);
+    }
+  }
+
   // Enhanced keyboard navigation
   document.addEventListener('keydown', (e) => {
     // Press 'h' for home/top
